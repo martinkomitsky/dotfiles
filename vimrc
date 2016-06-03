@@ -289,7 +289,7 @@
 " Pathogen {
 
     let g:pathogen_disabled = []
-    " call add(g:pathogen_disabled, 'syntastic')
+    " call add(g:pathogen_disabled, 'tern_for_vim')
     execute pathogen#infect()
 
 " }
