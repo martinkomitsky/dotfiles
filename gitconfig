@@ -8,8 +8,8 @@
     separator = 8
 
 [user]
-    name = Anton Eprev
-    email = a.eprev@gmail.com
+    name = Martin Komitsky
+    email = m.komitsky@corp.mail.ru
 
 [core]
     excludesfile = ~/.gitignore
@@ -23,6 +23,11 @@
 
 [alias]
     # http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+
+    co = checkout
+    br = branch
+    g = grep -F
+    poh = push origin HEAD
 
     ### Explore your history, the commits and the code
 
@@ -75,7 +80,8 @@
     ### Basic Shortcuts
 
     cp = cherry-pick
-    st = status -s
+    stt = status -s
+    st = status
     cl = clone
     ai = add --interactive
     ci = commit

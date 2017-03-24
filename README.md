@@ -6,7 +6,7 @@
 ## Setup
 
 ```
-curl -L https://github.com/eprev/dotfiles/raw/master/bin/dot-install | bash
+curl -L https://github.com/martinkomitsky/dotfiles/raw/master/bin/dot-install | bash
 ```
 
 In addition, the following steps may be required:
@@ -17,7 +17,7 @@ In addition, the following steps may be required:
     brew install ctags-exuberant
     ```
 
-* You might want to try [locationchanger](https://github.com/eprev/locationchanger).
+* You might want to try [locationchanger](https://github.com/martinkomitsky/locationchanger).
 
 * Like the font in the screenshot? It's [Input Font](http://input.fontbureau.com/) (InputMonoCondensed-Light, 13pt).
 
