@@ -24,6 +24,7 @@
 [alias]
     # http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
 
+    ct = commit -am
     co = checkout
     br = branch
     g = grep -F
