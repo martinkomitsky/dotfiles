@@ -270,6 +270,10 @@
     cmap <M-b> <S-Left>
     cmap <M-f> <S-Right>
 
+    " Quick open file in the same directory as the current file
+    cnoremap %% <C-R>=expand('%:h') . '/'<cr>
+    map <leader>e :edit %%
+
 " }
 
 " Status line {
