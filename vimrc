@@ -228,6 +228,18 @@
         call setreg('/', old_query)
     endfunction
 
+    " Rename the current file and remove the old one
+    function! RenameFile()
+        let old_name = expand('%')
+        let new_name = input('New file name: ', expand('%'), 'file')
+        if new_name != '' && new_name != old_name
+            exec ':saveas ' . new_name
+            exec ':silent !rm ' . old_name
+            redraw!
+        endif
+    endfunction
+    map <leader>n :call RenameFile()<cr>
+
 " }
 
 " Visual mode {
