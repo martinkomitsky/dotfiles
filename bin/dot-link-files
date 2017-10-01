@@ -12,6 +12,7 @@ declare -a files=(
     vim
     vimrc
     ctags
+    replyrc
 )
 
 for i in ${files[@]}; do
