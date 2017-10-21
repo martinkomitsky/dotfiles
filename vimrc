@@ -338,6 +338,7 @@
     let g:pathogen_disabled = []
     call add(g:pathogen_disabled, 'vim-jsx')
     call add(g:pathogen_disabled, 'vim-cursorword')
+    call add(g:pathogen_disabled, 'ctrlp.vim')
     execute pathogen#infect()
 
 " }
@@ -362,12 +363,22 @@
 
 " Ctrl-P {
 
-    let g:ctrlp_custom_ignore = '\v[\/](node_modules|\.(git|hg|svn|node_modules))$'
-    let g:ctrlp_map='<F3>'
-    nnoremap <leader>f :CtrlP<CR>
-    nnoremap <leader>b :CtrlPBuffer<CR>
-    nnoremap <leader>m :CtrlPMRUFiles<CR>
-    nnoremap <leader>t :CtrlPTag<CR>
+    " let g:ctrlp_custom_ignore = '\v[\/](node_modules|\.(git|hg|svn|node_modules))$'
+    " let g:ctrlp_map='<F3>'
+    " nnoremap <leader>f :CtrlP<CR>
+    " nnoremap <leader>b :CtrlPBuffer<CR>
+    " nnoremap <leader>m :CtrlPMRUFiles<CR>
+    " nnoremap <leader>t :CtrlPTag<CR>
+
+" }
+
+" fzf {
+
+    set runtimepath+=/usr/local/opt/fzf
+    nnoremap <leader>f :Files<CR>
+    nnoremap <leader>b :Buffers<CR>
+    nnoremap <leader>g :GFiles<CR>
+    nnoremap <leader>t :Tags<CR>
 
 " }
 
