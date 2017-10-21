@@ -78,3 +78,7 @@ npm install -g eslint
 gem install jekyll --user-install
 gem install bundler --user-install
 
+# fzf
+brew install fzf
+$(brew --prefix)/opt/fzf/install
+
