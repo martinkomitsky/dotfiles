@@ -13,6 +13,7 @@ declare -a files=(
     vimrc
     ctags
     replyrc
+    gemrc
 )
 
 for i in ${files[@]}; do
