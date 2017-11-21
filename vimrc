@@ -425,9 +425,15 @@
         autocmd WinEnter * set cursorline
         autocmd WinLeave * set nocursorline
 
-        " Keep folds layout
-        autocmd BufWinLeave ?* mkview
-        autocmd BufWinEnter ?* silent loadview
+        " " Keep folds layout
+        " autocmd BufWinLeave ?* mkview
+        " autocmd BufWinEnter ?* silent loadview
+
+        " Jump to last cursor position unless it's invalid or in an event handler
+        autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g'\"" |
+            \ endif
 
         " Enable file type detection
         filetype plugin indent on
