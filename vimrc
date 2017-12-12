@@ -151,6 +151,12 @@
     " Map the arrow keys to be based on display lines, not physical lines
     " imap <Down> <Esc>gja
     " imap <Up> <Esc>gka
+
+    " Disable the arrow keys
+    " imap <up> <nop>
+    " imap <down> <nop>
+    " imap <left> <nop>
+    " imap <right> <nop>
 " }
 
 " Normal mode key bindings {
@@ -171,6 +177,12 @@
     map <Down> gj
     map <Up> gk
 
+    " Disable the arrow keys
+    " map <up> <nop>
+    " map <down> <nop>
+    " map <left> <nop>
+    " map <right> <nop>
+
     " Disable highlight
     map <silent> <leader><cr> :noh<cr>
     " Switch CWD to the directory of the open buffer
@@ -178,8 +190,6 @@
     " Quickly edit/reload the vimrc file
     nmap <silent> <leader>ve :e $MYVIMRC<CR>
     nmap <silent> <leader>vs :so $MYVIMRC<CR>
-    " Toggle paste mode
-    map <leader>pp :setlocal paste!<cr>
 
     " Upper/lower word
     nmap <leader>u viwU
@@ -217,6 +227,9 @@
 
     " CSS Sorting
     nmap <Leader>cs :CSSSorting<CR>
+
+    " JS Prettier
+    nmap <Leader>pp :%!prettier<CR>
 
     " Strip trailing whitespace
     noremap <leader>ss :call StripWhitespace()<CR>

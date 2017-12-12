@@ -73,6 +73,7 @@ npm install -g postcss-cli postcss-sorting
 
 # Installing JS tools
 npm install -g eslint
+npm install -g prettier
 
 # Installing jekyll
 gem install jekyll --user-install
