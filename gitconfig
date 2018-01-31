@@ -7,6 +7,16 @@
     linenumber = 8
     separator = 8
 
+[color "diff"]
+    new=green
+    old=red
+    newMoved=green bold
+    oldMoved=red bold
+    newMoved=green dim
+    oldMoved=red dim
+    newMovedAlternative=green dim
+    oldMovedAlternative=red dim
+
 [user]
     name = Anton Eprev
     email = a.eprev@gmail.com
@@ -17,6 +27,7 @@
 
 [diff]
     algorithm = patience
+    colorMoved=default
 
 [apply]
     whitespace = nowarn
@@ -98,3 +109,7 @@
 
 [push]
 	default = simple
+[url "https://"]
+	insteadof = git@
+[url "https://github.com/"]
+	insteadof = git@github.com:
