@@ -17,9 +17,9 @@
 
     * If you want to use [TagBar](http://majutsushi.github.io/tagbar/), you need to install exuberant-ctags (or simply run `dot-install-osx`):
 
-    ```
-    brew install ctags-exuberant
-    ```
+        ```
+        brew install ctags-exuberant
+        ```
 
     * You might want to try [locationchanger](https://github.com/eprev/locationchanger).
 
