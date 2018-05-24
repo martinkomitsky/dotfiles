@@ -57,4 +57,7 @@ if [ -n "$PS1" ]; then
     # If possible, add tab completion for many more commands
     # [ -f /etc/bash_completion ] && source /etc/bash_completion
 
+    # Make fzf to use git ls-tree when available
+    export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD || find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//) 2> /dev/null'
+
 fi
