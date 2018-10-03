@@ -172,6 +172,8 @@
     map <F4> :setlocal wrap!<CR>
     " Toggle spell check
     map <F5> :setlocal spell! spelllang=en<CR>
+    " Save and run make
+    map <F9> :silent w<CR>:silent make<CR>:unsilent redraw!<CR>:cwindow<CR>
 
     " Map the arrow keys to be based on display lines, not physical lines
     map <Down> gj
