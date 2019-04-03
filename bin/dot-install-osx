@@ -43,6 +43,7 @@ brew install ssh-copy-id
 brew install tree
 brew install ctags-exuberant
 brew install tmux
+brew install jq
 brew install ffmpeg --with-libvpx
 brew install qpdf
 brew install fswatch
@@ -74,6 +75,8 @@ npm install -g postcss-cli postcss-sorting
 # Installing JS tools
 npm install -g eslint
 npm install -g prettier
+
+npm install -g npx
 
 # Installing jekyll
 gem install jekyll --user-install
