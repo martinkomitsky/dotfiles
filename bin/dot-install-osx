@@ -72,6 +72,8 @@ brew install yarn
 # Installing postcss-sorting (required by vim's css-sorting)
 npm install -g postcss-cli postcss-sorting
 
+npm -g install typescript
+
 # Installing JS tools
 npm install -g eslint
 npm install -g prettier
