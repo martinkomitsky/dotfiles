@@ -7,6 +7,16 @@
     linenumber = 8
     separator = 8
 
+[color "diff"]
+    new=green
+    old=red
+    newMoved=green bold
+    oldMoved=red bold
+    newMoved=green dim
+    oldMoved=red dim
+    newMovedAlternative=green dim
+    oldMovedAlternative=red dim
+
 [user]
     name = Martin Komitsky
     email = m.komitsky@corp.mail.ru
@@ -17,6 +27,7 @@
 
 [diff]
     algorithm = patience
+    colorMoved=default
 
 [apply]
     whitespace = nowarn
@@ -42,18 +53,6 @@
 
     # List commits showing changed files is invoked with git ll and looks like this:
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-
-    # List with no colors if you need to chain the out put with Unix pipes:
-    lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
-
-    # List oneline commits showing dates:
-    # lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-
-    # List oneline commits showing relative dates:
-    # ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-
-    # Short git log
-    le = log --oneline --decorate
 
     # Graph
     lg = log --graph --pretty="format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]"

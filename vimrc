@@ -91,7 +91,7 @@
     " Hide buffers instead of closing them
     set hidden
     " Spell checking
-    set spell spelllang=en
+    set spelllang=en
     set spellfile=~/.vim/spell/en.utf-8.add
     " Automatically change the current directory
     " set autochdir
@@ -151,6 +151,12 @@
     " Map the arrow keys to be based on display lines, not physical lines
     " imap <Down> <Esc>gja
     " imap <Up> <Esc>gka
+
+    " Disable the arrow keys
+    " imap <up> <nop>
+    " imap <down> <nop>
+    " imap <left> <nop>
+    " imap <right> <nop>
 " }
 
 " Normal mode key bindings {
@@ -171,6 +177,12 @@
     map <Down> gj
     map <Up> gk
 
+    " Disable the arrow keys
+    " map <up> <nop>
+    " map <down> <nop>
+    " map <left> <nop>
+    " map <right> <nop>
+
     " Disable highlight
     map <silent> <leader><cr> :noh<cr>
     " Switch CWD to the directory of the open buffer
@@ -178,8 +190,6 @@
     " Quickly edit/reload the vimrc file
     nmap <silent> <leader>ve :e $MYVIMRC<CR>
     nmap <silent> <leader>vs :so $MYVIMRC<CR>
-    " Toggle paste mode
-    map <leader>pp :setlocal paste!<cr>
 
     " Upper/lower word
     nmap <leader>u viwU
@@ -218,6 +228,9 @@
     " CSS Sorting
     nmap <Leader>cs :CSSSorting<CR>
 
+    " JS Prettier
+    nmap <Leader>pp :%!prettier<CR>
+
     " Strip trailing whitespace
     noremap <leader>ss :call StripWhitespace()<CR>
     function! StripWhitespace()
@@ -227,6 +240,18 @@
         call setpos('.', save_cursor)
         call setreg('/', old_query)
     endfunction
+
+    " Rename the current file and remove the old one
+    function! RenameFile()
+        let old_name = expand('%')
+        let new_name = input('New file name: ', expand('%'), 'file')
+        if new_name != '' && new_name != old_name
+            exec ':saveas ' . new_name
+            exec ':silent !rm ' . old_name
+            redraw!
+        endif
+    endfunction
+    map <leader>n :call RenameFile()<cr>
 
 " }
 
@@ -270,6 +295,22 @@
     cmap <M-b> <S-Left>
     cmap <M-f> <S-Right>
 
+    " Quick open file in the same directory as the current file
+    cnoremap %% <C-R>=expand('%:h') . '/'<cr>
+    map <leader>e :edit %%
+
+    " Rename the current file and remove the old one
+    function! RenameFile()
+        let old_name = expand('%')
+        let new_name = input('New file name: ', expand('%'), 'file')
+        if new_name != '' && new_name != old_name
+            exec ':saveas ' . new_name
+            exec ':silent !rm ' . old_name
+            redraw!
+        endif
+    endfunction
+    map <leader>n :call RenameFile()<cr>
+
 " }
 
 " Status line {
@@ -310,6 +351,7 @@
     let g:pathogen_disabled = []
     call add(g:pathogen_disabled, 'vim-jsx')
     call add(g:pathogen_disabled, 'vim-cursorword')
+    call add(g:pathogen_disabled, 'ctrlp.vim')
     execute pathogen#infect()
 
 " }
@@ -334,12 +376,22 @@
 
 " Ctrl-P {
 
-    let g:ctrlp_custom_ignore = '\v[\/](node_modules|\.(git|hg|svn|node_modules))$'
-    let g:ctrlp_map='<F3>'
-    nnoremap <leader>f :CtrlP<CR>
-    nnoremap <leader>b :CtrlPBuffer<CR>
-    nnoremap <leader>m :CtrlPMRUFiles<CR>
-    nnoremap <leader>t :CtrlPTag<CR>
+    " let g:ctrlp_custom_ignore = '\v[\/](node_modules|\.(git|hg|svn|node_modules))$'
+    " let g:ctrlp_map='<F3>'
+    " nnoremap <leader>f :CtrlP<CR>
+    " nnoremap <leader>b :CtrlPBuffer<CR>
+    " nnoremap <leader>m :CtrlPMRUFiles<CR>
+    " nnoremap <leader>t :CtrlPTag<CR>
+
+" }
+
+" fzf {
+
+    set runtimepath+=/usr/local/opt/fzf
+    nnoremap <leader>f :Files<CR>
+    nnoremap <leader>b :Buffers<CR>
+    nnoremap <leader>g :GFiles<CR>
+    nnoremap <leader>t :Tags<CR>
 
 " }
 
@@ -367,11 +419,29 @@
 " Supertab {
 
     " Let it be smarter
-    let g:SuperTabDefaultCompletionType = "context"
-    autocmd FileType *
-    \ if &omnifunc != '' |
-    \   call SuperTabChain(&omnifunc, "<c-p>") |
-    \ endif
+    " let g:SuperTabDefaultCompletionType = "context"
+    " autocmd FileType *
+    " \ if &omnifunc != '' |
+    " \   call SuperTabChain(&omnifunc, "<c-p>") |
+    " \ endif
+
+" }
+
+" Multipurpose tab {
+
+    " " Indent if we're at the beginning of a line. Else, do completion.
+    " function! InsertTabWrapper()
+    "     let col = col('.') - 1
+    "     if !col || getline('.')[col - 1] !~ '\k'
+    "         return "\<tab>"
+    "     else
+    "         return "\<c-p>"
+    "     endif
+    " endfunction
+    " inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
+    " Shift+Tab decreases indentation (insert mode)
+    inoremap <S-Tab> <Esc><<i
 
 " }
 
@@ -386,9 +456,15 @@
         autocmd WinEnter * set cursorline
         autocmd WinLeave * set nocursorline
 
-        " Keep folds layout
-        autocmd BufWinLeave ?* mkview
-        autocmd BufWinEnter ?* silent loadview
+        " " Keep folds layout
+        " autocmd BufWinLeave ?* mkview
+        " autocmd BufWinEnter ?* silent loadview
+
+        " Jump to last cursor position unless it's invalid or in an event handler
+        autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g'\"" |
+            \ endif
 
         " Enable file type detection
         filetype plugin indent on

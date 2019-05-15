@@ -73,8 +73,15 @@ npm install -g postcss-cli postcss-sorting
 
 # Installing JS tools
 npm install -g eslint
+npm install -g prettier
 
 # Installing jekyll
 gem install jekyll --user-install
 gem install bundler --user-install
 
+# fzf
+brew install fzf
+$(brew --prefix)/opt/fzf/install
+
+# ripgrep
+brew install ripgrep
