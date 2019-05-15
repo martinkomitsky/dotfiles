@@ -62,6 +62,7 @@ if [ -n "$PS1" ]; then
 
 fi
 
+# User specific aliases and functions
 alias cdf='cd ~/.www/frontend'
 alias gpd='git pull origin devel'
 alias gpm='git pull origin master'
