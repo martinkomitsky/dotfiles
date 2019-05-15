@@ -25,10 +25,15 @@
     # http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
 
     ct = commit -am
-    co = checkout
     br = branch
     g = grep -F
     poh = push origin HEAD
+    pohu = push -u origin HEAD
+    #re = commit -m "rebuild" --allow-empty #&& git push
+    re = ! git commit -m "rebuild" --allow-empty && git push
+    d = diff
+    db = diff -b
+    cob = checkout -b
 
     ### Explore your history, the commits and the code
 
@@ -114,10 +119,11 @@
     open = "!vim -c \"cd $GIT_PREFIX\" -p $(git diff --name-only HEAD | tr '\\n' ' ')"
     edit = "!f() { vim -c \"cd $GIT_PREFIX\" -p $(git diff --name-only "$1"^.."$1" | tr '\\n' ' '); }; f"
     age = "!git for-each-ref --sort=committerdate --format='%(refname:short) * %(authorname) * %(committerdate:relative)' refs/remotes/ | column -t -s '*'"
+	undelete = !sh -c \"git checkout $(git rev-list -n 1 HEAD -- $1)^ -- $1\" -
 
 [push]
 	default = simple
-[url "https://"]
-	insteadof = git@
-[url "https://github.com/"]
-	insteadof = git@github.com:
+#[url "https://"]
+#	insteadof = git@
+#[url "https://github.com/"]
+#	insteadof = git@github.com:
