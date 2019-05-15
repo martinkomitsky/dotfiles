@@ -61,3 +61,12 @@ if [ -n "$PS1" ]; then
     export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD || find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//) 2> /dev/null'
 
 fi
+
+alias cdf='cd ~/.www/frontend'
+alias gpd='git pull origin devel'
+alias gpm='git pull origin master'
+alias gpr='git pull origin release'
+alias gbn='git branch | grep \* | cut -d " " -f2'
+
+gct (){ local br=$(gbn); git commit -am "$br: $1"; }
+alias gbdo='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
