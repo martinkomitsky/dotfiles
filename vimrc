@@ -236,6 +236,9 @@
     " CSS Sorting
     nmap <Leader>cs :CSSSorting<CR>
 
+    " JS Prettier
+    nmap <Leader>pp :%!prettier<CR>
+
     " Strip trailing whitespace
     noremap <leader>ss :call StripWhitespace()<CR>
     function! StripWhitespace()
@@ -490,9 +493,6 @@
         autocmd BufNewFile,BufRead *.es setfiletype javascript
         " Auto-detect indent settings
         autocmd BufReadPost * :DetectIndent
-
-        " Prettier
-        autocmd FileType javascript set formatprg=prettier
 
         " Use tabs for makefiles
         autocmd FileType make setlocal noexpandtab
