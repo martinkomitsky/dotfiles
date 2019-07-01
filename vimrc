@@ -131,6 +131,9 @@
 
 " Insert mode key bindings {
 
+    " Alternative Esc (iPad)
+    imap § <Esc>
+
     " Save file Ctrl-s
     imap <C-s> <Esc>:w<CR>a
     " Moves cursor
@@ -160,6 +163,9 @@
 " }
 
 " Normal mode key bindings {
+
+    " Alternative Esc (iPad)
+    map § <Esc>
 
     " Remap 0 to first non-blank character
     map 0 ^
@@ -259,6 +265,9 @@
 
 " Visual mode {
 
+    " Alternative Esc (iPad)
+    vmap § <Esc>
+
     " Pressing * or # searches for the current selection
     function! s:VSetSearch()
         let temp = @@
@@ -288,6 +297,9 @@
 " }
 
 " Command mode key bindings {
+
+    " Alternative Esc (iPad)
+    cmap § <Esc>
 
     " Save a file as root
     cmap w!! w !sudo tee % >/dev/null
@@ -390,6 +402,7 @@
 " fzf {
 
     set runtimepath+=/usr/local/opt/fzf
+    set rtp+=~/.fzf
     nnoremap <leader>f :Files<CR>
     nnoremap <leader>b :Buffers<CR>
     nnoremap <leader>g :GFiles<CR>
