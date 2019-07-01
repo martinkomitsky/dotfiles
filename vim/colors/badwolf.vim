@@ -464,6 +464,14 @@ call s:HL('cssColor', 'toffee', '', 'bold')
 call s:HL('cssBraces', 'lightgravel', '', 'none')
 call s:HL('cssIdentifier', 'orange', '', 'bold')
 call s:HL('cssClassName', 'orange', '', 'none')
+" }}}
+" Javascript {{{
+
+call s:HL('typescriptImport', 'taffy', '', 'bold')
+call s:HL('typescriptCastKeyword', 'taffy', '', 'bold')
+call s:HL('typescriptExport', 'taffy', '', 'bold')
+call s:HL('typescriptMember', 'plain', '', '')
+call s:HL('typescriptObjectLabel', 'plain', '', '')
 
 " }}}
 " Diff {{{
