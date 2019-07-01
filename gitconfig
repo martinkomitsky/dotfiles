@@ -46,6 +46,8 @@
     # Graph
     lg = log --graph --pretty="format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]"
 
+    me = log --author=eprev
+
     ### Log commands to inspect (recent) history
 
     # Show a diff last commit:
