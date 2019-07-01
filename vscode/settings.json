@@ -1,0 +1,32 @@
+{
+    "editor.renderWhitespace": "all",
+    "terminal.integrated.fontFamily": "Dank Mono",
+    "editor.fontFamily": "Dank Mono, FiraCode-Retina",
+    "editor.lineHeight": 24,
+    "editor.fontSize": 16,
+    "editor.fontWeight": "500",
+    "editor.fontLigatures": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.formatOnPaste": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "window.zoomLevel": 0,
+    "workbench.fontAliasing": "antialiased",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+        "[Material Theme]": {
+            "sideBar.foreground": "#b8c5cb"
+        }
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "typescript": "typescriptreact",
+        "typescriptreact": "jsx"
+        // "*.tsx": "typescriptreact"
+    },
+    "material-icon-theme.folders.color": "#42a5f5",
+    "material-icon-theme.activeIconPack": "react_redux",
+    "material-icon-theme.opacity": 1,
+    "workbench.colorTheme": "Material Theme",
+    "files.insertFinalNewline": true
+}
