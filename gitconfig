@@ -36,9 +36,9 @@
     # http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
 
     ct = commit -am
-    br = branch
     g = grep -F
     poh = push origin HEAD
+    puh = push upstream HEAD
     pohu = push -u origin HEAD
     #re = commit -m "rebuild" --allow-empty #&& git push
     re = ! git commit -m "rebuild" --allow-empty && git push
@@ -97,6 +97,8 @@
     diff = diff --word-diff
     dc = diff --cached
 
+    bc = "!f() { bname=\"[$(git symbolic-ref --short HEAD)] \"; read -i \"$bname\" -e && [[ ${#bname} -lt ${#REPLY} ]] && git commit -m \"$REPLY\" || echo aborted; }; f; unset f bname"
+
     ### Stash operations
 
     sl = stash list
@@ -121,4 +123,4 @@
 	undelete = !sh -c \"git checkout $(git rev-list -n 1 HEAD -- $1)^ -- $1\" -
 
 [push]
-	default = simple
+    default = simple
