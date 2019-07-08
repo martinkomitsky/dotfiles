@@ -1,6 +1,6 @@
-" vim: ts=4 et fmr={,} fdl=0 fdm=marker
+" vim: ts=4 et fmr={{{,}}} fdl=0 fdm=marker
 
-" Options {
+" Options {{{
 
     " Make Vim more useful
     set nocompatible
@@ -23,7 +23,7 @@
     " Don’t add empty newlines at the end of files
     set binary
     set noeol
-    " Disable backups and swapfiles
+    " Disable backups, swap- amd undofiles
     set nobackup
     set noswapfile
     set noundofile
@@ -40,7 +40,7 @@
     " Enable syntax highlighting
     syntax on
     " Syntax coloring lines that are too long just slows down the world
-    set synmaxcol=196
+    set synmaxcol=100
     " Highlight current line
     set cursorline
     " Use spaces instead of tabs
@@ -79,7 +79,7 @@
     set nostartofline
     " Show the cursor position
     set ruler
-    " Don’t show the intro message when starting Vim
+    " Don’t show the intro message when starting Vim and be concise generally
     set shortmess=actI
     " Show the current mode
     set showmode
@@ -98,12 +98,6 @@
     " Spell checking
     set spelllang=en
     set spellfile=~/.vim/spell/en.utf-8.add
-    " Automatically change the current directory
-    " set autochdir
-    " Look for ctags file in the parent directories
-    set tags=tags;
-    " Stop indenting when pasting
-    set pastetoggle=<f2>
 
     " Continue comments when pressing <Enter>
     set formatoptions+=r
@@ -116,25 +110,27 @@
     " Don't break long lines that were already too long
     set formatoptions+=l
 
-    " Don't add styling for HTML (eg. underline links)
-    let html_no_rendering=1
-
     " The maximum number of tabs Vim will open on startup
-    set tabpagemax=32
+    set tabpagemax=16
+
+    " Stop indenting when pasting
+    set pastetoggle=<f2>
 
 " }
 
 " Color scheme {
 
-    " Bad Wolf
+    " True colors
+    set termguicolors
+
     try
-        colorscheme badwolf
+        colorscheme dark
     catch
     endtry
 
-" }
+" }}}
 
-" Insert mode key bindings {
+" Insert mode key bindings {{{
 
     " Alternative Esc (iPad)
     imap § <Esc>
@@ -156,6 +152,9 @@
     " Toggle spell check
     imap <F5> <C-o>:setlocal spell! spelllang=en<CR>
 
+    " Shift+Tab decreases indentation
+    inoremap <S-Tab> <Esc><<i
+
     " Map the arrow keys to be based on display lines, not physical lines
     " imap <Down> <Esc>gja
     " imap <Up> <Esc>gka
@@ -165,9 +164,9 @@
     " imap <down> <nop>
     " imap <left> <nop>
     " imap <right> <nop>
-" }
+" }}}
 
-" Normal mode key bindings {
+" Normal mode key bindings {{{
 
     " Alternative Esc (iPad)
     map § <Esc>
@@ -177,7 +176,7 @@
     " Save file Ctrl-s
     nmap <C-s> :w<CR>
     " Toggle folding
-    nnoremap <space> za
+    " nnoremap <space> za
 
     " Toggle wrapping mode
     map <F4> :setlocal wrap!<CR>
@@ -236,13 +235,6 @@
     " Aligning
     nmap <Leader>a= :Tabularize /=<CR>
     nmap <Leader>a: :Tabularize /:<CR>
-    " nmap <Leader>a: :Tabularize /:\zs<CR>
-
-    " CSS Sorting
-    nmap <Leader>cs :CSSSorting<CR>
-
-    " JS Prettier
-    nmap <Leader>pp :%!prettier<CR>
 
     " Strip trailing whitespace
     noremap <leader>ss :call StripWhitespace()<CR>
@@ -264,11 +256,11 @@
             redraw!
         endif
     endfunction
-    map <leader>n :call RenameFile()<cr>
+    map <leader>mv :call RenameFile()<cr>
 
-" }
+" }}}
 
-" Visual mode {
+" Visual mode {{{
 
     " Alternative Esc (iPad)
     vmap § <Esc>
@@ -294,10 +286,6 @@
     " Aligning
     vmap <Leader>a= :Tabularize /=<CR>
     vmap <Leader>a: :Tabularize /:<CR>
-    " vmap <Leader>a: :Tabularize /:\zs<CR>
-
-    " CSS Sorting
-    vmap <Leader>cs :CSSSorting<CR>
 
 " }
 
@@ -318,73 +306,28 @@
     cnoremap %% <C-R>=expand('%:h') . '/'<cr>
     map <leader>e :edit %%
 
-    " Rename the current file and remove the old one
-    function! RenameFile()
-        let old_name = expand('%')
-        let new_name = input('New file name: ', expand('%'), 'file')
-        if new_name != '' && new_name != old_name
-            exec ':saveas ' . new_name
-            exec ':silent !rm ' . old_name
-            redraw!
-        endif
-    endfunction
-    map <leader>n :call RenameFile()<cr>
+" }}}
 
-" }
-
-" Status line {
-
-    set laststatus=2
-    set statusline=
-    set statusline+=%-3.3n       " Buffer number
-    set statusline+=%f           " Filename
-    set statusline+=%h%m%r%w     " Status flags
-    set statusline+=\ [%{strlen(&ft)?&ft:'none'}] " File type
-    set statusline+=%=           " Right align remainder
-    set statusline+=%-14(%l,%c%) " Line, Character
-    set statusline+=%<%p%%       " File position
-
-    let s:status_line_off = 0
-    function! ToggleStatusLine()
-        if s:status_line_off == 0
-            let s:status_line_off = 1
-            set noshowmode
-            set noruler
-            set laststatus=0
-            set noshowcmd
-        else
-            let s:status_line_off = 0
-            set showmode
-            set ruler
-            set laststatus=2
-            set showcmd
-        endif
-    endfunction
-
-    nnoremap <silent> <leader>h :call ToggleStatusLine()<CR>
-
-" }
-
-" Pathogen {
+" Pathogen {{{
 
     let g:pathogen_disabled = []
-    call add(g:pathogen_disabled, 'vim-jsx')
-    call add(g:pathogen_disabled, 'vim-cursorword')
-    call add(g:pathogen_disabled, 'ctrlp.vim')
-    call add(g:pathogen_disabled, 'supertab') " CoC is handling Tab now
-    call add(g:pathogen_disabled, 'syntastic') " Typescript is slow
+    call add(g:pathogen_disabled, 'detectindent')
+    call add(g:pathogen_disabled, 'tlib_vim')
+    call add(g:pathogen_disabled, 'vim-addon-mw-utils')
+    call add(g:pathogen_disabled, 'vim-fugitive')
+    call add(g:pathogen_disabled, 'vim-javascript')
+    " call add(g:pathogen_disabled, 'yankring')
     execute pathogen#infect()
 
-" }
+" }}}
 
-" Syntastic {
+" Yankring {{{
 
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_javascript_checkers = ['eslint']
+    let g:yankring_history_dir = '~/.vim'
 
-" }
+" }}}
 
-" Tagbar {
+" Tagbar {{{
 
     " Toggle Tagbar
     nmap <F8> :TagbarToggle<CR>
@@ -393,20 +336,9 @@
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
 
-" }
+" }}}
 
-" Ctrl-P {
-
-    " let g:ctrlp_custom_ignore = '\v[\/](node_modules|\.(git|hg|svn|node_modules))$'
-    " let g:ctrlp_map='<F3>'
-    " nnoremap <leader>f :CtrlP<CR>
-    " nnoremap <leader>b :CtrlPBuffer<CR>
-    " nnoremap <leader>m :CtrlPMRUFiles<CR>
-    " nnoremap <leader>t :CtrlPTag<CR>
-
-" }
-
-" fzf {
+" fzf {{{
 
     set runtimepath+=/usr/local/opt/fzf
     set rtp+=~/.fzf
@@ -415,59 +347,9 @@
     nnoremap <leader>g :GFiles<CR>
     nnoremap <leader>t :Tags<CR>
 
-" }
+" }}}
 
-" Yankring {
-
-    let g:yankring_history_dir = '~/.vim'
-
-" }
-
-" JSX {
-
-    " Enable JSX syntax highlighting & indenting only for .jsx files
-    " let g:jsx_ext_required = 1
-
-" }
-
-" SnipMate {
-
-    " Don't conflict with supertab
-    :imap <C-J> <Plug>snipMateNextOrTrigger
-    :smap <C-J> <Plug>snipMateNextOrTrigger
-
-" }
-
-" Supertab {
-
-    " Let it be smarter
-    " let g:SuperTabDefaultCompletionType = "context"
-    " autocmd FileType *
-    " \ if &omnifunc != '' |
-    " \   call SuperTabChain(&omnifunc, "<c-p>") |
-    " \ endif
-
-" }
-
-" Multipurpose tab {
-
-    " " Indent if we're at the beginning of a line. Else, do completion.
-    " function! InsertTabWrapper()
-    "     let col = col('.') - 1
-    "     if !col || getline('.')[col - 1] !~ '\k'
-    "         return "\<tab>"
-    "     else
-    "         return "\<c-p>"
-    "     endif
-    " endfunction
-    " inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-
-    " Shift+Tab decreases indentation (insert mode)
-    inoremap <S-Tab> <Esc><<i
-
-" }
-
-" CoC {
+" CoC {{{
 
     " Use tab for trigger completion with characters ahead and navigate.
     " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -512,15 +394,12 @@
         endif
     endfunction
 
-    " Highlight symbol under cursor on CursorHold
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-
     " Remap for rename current word
     nmap <leader>rn <Plug>(coc-rename)
 
     " Remap for format selected region
-    xmap <leader>f <Plug>(coc-format-selected)
-    nmap <leader>f <Plug>(coc-format-selected)
+    xmap <leader>r <Plug>(coc-format-selected)
+    nmap <leader>r <Plug>(coc-format-selected)
 
     augroup mygroup
         autocmd!
@@ -553,39 +432,27 @@
     " use `:OR` for organize import of current buffer
     command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
-    " Add diagnostic info for https://github.com/itchyny/lightline.vim
-    let g:lightline = {
-                \ 'colorscheme': 'wombat',
-                \ 'active': {
-                \   'left': [ [ 'mode', 'paste' ],
-                \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-                \ },
-                \ 'component_function': {
-                \   'cocstatus': 'coc#status'
-                \ },
-                \ }
-
     " Using CocList
     " Show all diagnostics
-    nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+    nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
     " Manage extensions
-    nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+    nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
     " Show commands
-    nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+    nnoremap <silent> <space>c :<C-u>CocList commands<cr>
     " Find symbol of current document
-    nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+    nnoremap <silent> <space>o :<C-u>CocList outline<cr>
     " Search workspace symbols
-    nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+    nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
     " Do default action for next item.
-    nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+    nnoremap <silent> <space>j :<C-u>CocNext<CR>
     " Do default action for previous item.
-    nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+    nnoremap <silent> <space>k :<C-u>CocPrev<CR>
     " Resume latest coc list
-    nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+    nnoremap <silent> <space>p :<C-u>CocListResume<CR>
     " Yank history
-    nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+    nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
-    " Fix broken arrow keys for CocList
+    " Fix broken arrow keys
     if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
         nnoremap <silent> <Esc>OA <Up>
         nnoremap <silent> <Esc>OB <Down>
@@ -597,13 +464,74 @@
         inoremap <silent> <Esc>OD <Left>
     endif
 
-" }
+" }}}
 
-" Automatic commands {
+" Status line {{{
 
-    let g:detectindent_preferred_expandtab = 1
-    let g:detectindent_preferred_indent = 4
-    let g:detectindent_preferred_when_mixed = 1
+    " function! CocStatus() abort
+    "   let status = get(g:, 'coc_status', '')
+    "   if empty(status) | return '' | endif
+    "   return status . ' '
+    " endfunction
+    "
+    " function! CocDiagnosticInfo() abort
+    "   let info = get(b:, 'coc_diagnostic_info', {})
+    "   if empty(info) | return '' | endif
+    "   let msgs = []
+    "   if get(info, 'error', 0)
+    "     call add(msgs, 'E' . info['error'])
+    "   endif
+    "   if get(info, 'warning', 0)
+    "     call add(msgs, 'W' . info['warning'])
+    "   endif
+    "   if empty(msgs) | return '' | endif
+    "   return ' ' . join(msgs, ' ') . ' '
+    " endfunction
+
+    set laststatus=2
+    set statusline=
+    set statusline+=\ %-3.3n        " Buffer number
+    set statusline+=%f              " Filename
+    set statusline+=%h%m%r%w        " Status flags
+    set statusline+=\ [%{strlen(&ft)?&ft:'none'}]  " File type
+    " set statusline+=\ %3*%{CocStatus()}%1*         " Coc status
+    " set statusline+=%2*%{CocDiagnosticInfo()}%1* " Diagnostic info
+    set statusline+=%=              " Right align remainder
+    set statusline+=%-14(%l,%c%)    " Line, Character
+    set statusline+=%<%p%%\         " File position
+
+    let s:presentation_mode = 0
+    function! TogglePresentationMode()
+        if s:presentation_mode == 0
+            let s:presentation_mode = 1
+            set noshowmode
+            set noruler
+            set laststatus=0
+            set noshowcmd
+            set list!
+            set number!
+            sign unplace *
+        else
+            let s:presentation_mode = 0
+            set showmode
+            set ruler
+            set laststatus=2
+            set showcmd
+            set list
+            set number
+            set signcolumn=auto
+        endif
+    endfunction
+
+    nnoremap <silent> <leader>h :call TogglePresentationMode()<CR>
+
+" }}}
+
+" Automatic commands {{{
+
+    " let g:detectindent_preferred_expandtab = 1
+    " let g:detectindent_preferred_indent = 4
+    " let g:detectindent_preferred_when_mixed = 1
 
     if has("autocmd")
         " Don't highlight the current line if entering another window
@@ -623,16 +551,15 @@
         " Enable file type detection
         filetype plugin indent on
 
-        autocmd FileType go compiler go
-
         " Markdown
         autocmd BufNewFile,BufRead *.md set filetype=markdown
-        " Treat .json files as .js
-        " autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-        " Treat .es files as .js
-        " autocmd BufNewFile,BufRead *.es setfiletype javascript
+
+        " JSX
+        autocmd BufNewFile,BufRead *.jsx setfiletype javascript.jsx
+        autocmd BufNewFile,BufRead *.tsx setfiletype typescript.jsx
+
         " Auto-detect indent settings
-        autocmd BufReadPost * :DetectIndent
+        " autocmd BufReadPost * :DetectIndent
 
         " Use tabs for makefiles
         autocmd FileType make setlocal noexpandtab
@@ -641,9 +568,21 @@
         autocmd FileType json syntax match Comment +\/\/.\+$+
     endif
 
-" }
+" }}}
 
-try
-    source ~/.vimrc_local
-catch
-endtry
+" Debug {{{
+map <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . "> " .
+    \ "trans<" . synIDattr(synID(line("."),col("."),0),"name") . "> " .
+    \ "lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . "> " .
+    \ " FG<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#") . "> " .
+    \ " BG<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"bg#") . ">" <CR>
+" }}}
+
+" Read local settings {{{
+
+    try
+        source ~/.vimrc_local
+    catch
+    endtry
+
+" }}}

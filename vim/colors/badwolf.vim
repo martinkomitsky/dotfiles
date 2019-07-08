@@ -1,34 +1,9 @@
-"      _               _                 _  __
-"     | |__   __ _  __| | __      _____ | |/ _|
-"     | '_ \ / _` |/ _` | \ \ /\ / / _ \| | |_
-"     | |_) | (_| | (_| |  \ V  V / (_) | |  _|
-"     |_.__/ \__,_|\__,_|   \_/\_/ \___/|_|_|
+" vim: ts=4 et fmr={{{,}}} fdl=0 fdm=marker
 "
-"      I am the Bad Wolf. I create myself.
-"       I take the words. I scatter them in time and space.
-"        A message to lead myself here.
-"
-" A Vim colorscheme pieced together by Steve Losh.
+" Theme BadWold by Steve Losh
 " Available at http://stevelosh.com/projects/badwolf/
 "
-" Why? {{{
-"
-" After using Molokai for quite a long time, I started longing for
-" a replacement.
-"
-" I love Molokai's high contrast and gooey, saturated tones, but it can be
-" a little inconsistent at times.
-"
-" Also it's winter here in Rochester, so I wanted a color scheme that's a bit
-" warmer.  A little less blue and a bit more red.
-"
-" And so Bad Wolf was born.  I'm no designer, but designers have been scattering
-" beautiful colors through time and space long before I came along.  I took
-" advantage of that and reused some of my favorites to lead me to this scheme.
-"
-" }}}
-
-" Supporting code -------------------------------------------------------------
+" Modified by me.
 " Preamble {{{
 
 if !has("gui_running") && &t_Co != 88 && &t_Co != 256
@@ -56,7 +31,6 @@ endif " }}}
 
 let s:bwc = {}
 
-" The most basic of all our colors is a slightly tweaked version of the Molokai
 " Normal text.
 let s:bwc.plain = ['f8f6f2', 15]
 
@@ -64,7 +38,7 @@ let s:bwc.plain = ['f8f6f2', 15]
 let s:bwc.snow = ['ffffff', 15]
 let s:bwc.coal = ['000000', 16]
 
-" All of the Gravel colors are based on a brown from Clouds Midnight.
+" All of the Gravel colors
 let s:bwc.brightgravel   = ['d9cec3', 252]
 let s:bwc.lightgravel    = ['998f84', 245]
 let s:bwc.gravel         = ['857f78', 243]
@@ -72,38 +46,34 @@ let s:bwc.mediumgravel   = ['666462', 241]
 let s:bwc.deepgravel     = ['45413b', 238]
 let s:bwc.deepergravel   = ['35322d', 236]
 let s:bwc.darkgravel     = ['242321', 235]
-let s:bwc.blackgravel    = ['1c1b1a', 233]
-let s:bwc.blackestgravel = ['141413', 232]
+let s:bwc.blackgravel    = ['121212', 233]
+let s:bwc.blackestgravel = ['0c0c0c', 232]
 
-" A color sampled from a highlight in a photo of a glass of Dale's Pale Ale on
-" my desk.
+" Highlighting
 let s:bwc.dalespale = ['fade3e', 221]
 
-" A beautiful tan from Tomorrow Night.
+" eg. Strings
 let s:bwc.dirtyblonde = ['f4cf86', 222]
 
-" Delicious, chewy red from Made of Code for the poppiest highlights.
-let s:bwc.taffy = ['ff2c4b', 196]
+" Keywords
+let s:bwc.taffy = ['c70e0e', 196]
 
-" Another chewy accent, but use sparingly!
+" Blue lines
+let s:bwc.tardis = ['0a9dff', 39]
+let s:bwc.darktardis = ['007aca', 38]
+
+let s:bwc.orange = ['ffa724', 214]
 let s:bwc.saltwatertaffy = ['8cffba', 121]
 
-" The star of the show comes straight from Made of Code.
-let s:bwc.tardis = ['0a9dff', 39]
-
-" This one's from Mustang, not Florida!
-let s:bwc.orange = ['ffa724', 214]
-
-" A limier green from Getafe.
+" eg. Arguments
 let s:bwc.lime = ['aeee00', 154]
 
-" Rose's dress in The Idiot's Lantern.
+" eg. Warnings
 let s:bwc.dress = ['ff9eb8', 211]
 
-" Another play on the brown from Clouds Midnight.  I love that color.
+" eg. Numbers
 let s:bwc.toffee = ['b88853', 137]
 
-" Also based on that Clouds Midnight brown.
 let s:bwc.coffee    = ['c7915b', 173]
 let s:bwc.darkroast = ['88633f', 95]
 
@@ -171,10 +141,7 @@ else
 endif
 
 " }}}
-
-" Actual colorscheme ----------------------------------------------------------
 " Vanilla Vim {{{
-
 " General/UI {{{
 
 call s:HL('Normal', 'plain', 'blackgravel')
@@ -217,11 +184,13 @@ call s:HL('ModeMsg',    'dirtyblonde', '',   'bold')
 call s:HL('Question',   'dirtyblonde', '',   'bold')
 call s:HL('WarningMsg', 'dress',       '',   'bold')
 
-" This is a ctags tag, not an HTML one.  'Something you can use c-] on'.
+" This is a ctags tag, not an HTML one. 'Something you can use c-] on'.
 call s:HL('Tag', '', '', 'bold')
 
-" hi IndentGuides                  guibg=#373737
-" hi WildMenu        guifg=#66D9EF guibg=#000000
+call s:HL('User1', 'coal', 'tardis', 'bold')
+call s:HL('User2', 'coal', 'orange', 'bold')
+call s:HL('User3', 'coal', 'darktardis', 'bold')
+
 
 " }}}
 " Gutter {{{
@@ -326,333 +295,199 @@ if has("spell")
 endif
 
 " }}}
-
 " }}}
 " Plugins {{{
-
-" CtrlP {{{
-
-    " the message when no match is found
-    call s:HL('CtrlPNoEntries', 'snow', 'taffy', 'bold')
-
-    " the matched pattern
-    call s:HL('CtrlPMatch', 'orange', 'bg', 'none')
-
-    " the line prefix '>' in the match window
-    call s:HL('CtrlPLinePre', 'deepgravel', 'bg', 'none')
-
-    " the prompt’s base
-    call s:HL('CtrlPPrtBase', 'deepgravel', 'bg', 'none')
-
-    " the prompt’s text
-    call s:HL('CtrlPPrtText', 'plain', 'bg', 'none')
-
-    " the prompt’s cursor when moving over the text
-    call s:HL('CtrlPPrtCursor', 'coal', 'tardis', 'bold')
-
-    " 'prt' or 'win', also for 'regex'
-    call s:HL('CtrlPMode1', 'coal', 'tardis', 'bold')
-
-    " 'file' or 'path', also for the local working dir
-    call s:HL('CtrlPMode2', 'coal', 'tardis', 'bold')
-
-    " the scanning status
-    call s:HL('CtrlPStats', 'coal', 'tardis', 'bold')
-
-    " TODO: CtrlP extensions.
-    " CtrlPTabExtra  : the part of each line that’s not matched against (Comment)
-    " CtrlPqfLineCol : the line and column numbers in quickfix mode (|s:HL-Search|)
-    " CtrlPUndoT     : the elapsed time in undo mode (|s:HL-Directory|)
-    " CtrlPUndoBr    : the square brackets [] in undo mode (Comment)
-    " CtrlPUndoNr    : the undo number inside [] in undo mode (String)
-
-" }}}
-" EasyMotion {{{
-
-call s:HL('EasyMotionTarget', 'tardis',     'bg', 'bold')
-call s:HL('EasyMotionShade',  'deepgravel', 'bg')
-
-" }}}
-" Interesting Words {{{
-
-" These are only used if you're me or have copied the <leader>hNUM mappings
-" from my Vimrc.
-call s:HL('InterestingWord1', 'coal', 'orange')
-call s:HL('InterestingWord2', 'coal', 'lime')
-call s:HL('InterestingWord3', 'coal', 'saltwatertaffy')
-call s:HL('InterestingWord4', 'coal', 'toffee')
-call s:HL('InterestingWord5', 'coal', 'dress')
-call s:HL('InterestingWord6', 'coal', 'taffy')
-
-
-" }}}
-" Makegreen {{{
-
-" hi GreenBar term=reverse ctermfg=white ctermbg=green guifg=coal guibg=#9edf1c
-" hi RedBar   term=reverse ctermfg=white ctermbg=red guifg=white guibg=#C50048
-
-" }}}
 " Rainbow Parentheses {{{
-
-call s:HL('level16c', 'mediumgravel',   '', 'bold')
-call s:HL('level15c', 'dalespale',      '', '')
-call s:HL('level14c', 'dress',          '', '')
-call s:HL('level13c', 'orange',         '', '')
-call s:HL('level12c', 'tardis',         '', '')
-call s:HL('level11c', 'lime',           '', '')
-call s:HL('level10c', 'toffee',         '', '')
-call s:HL('level9c',  'saltwatertaffy', '', '')
-call s:HL('level8c',  'coffee',         '', '')
-call s:HL('level7c',  'dalespale',      '', '')
-call s:HL('level6c',  'dress',          '', '')
-call s:HL('level5c',  'orange',         '', '')
-call s:HL('level4c',  'tardis',         '', '')
-call s:HL('level3c',  'lime',           '', '')
-call s:HL('level2c',  'toffee',         '', '')
-call s:HL('level1c',  'saltwatertaffy', '', '')
-
+" call s:HL('level16c', 'mediumgravel',   '', 'bold')
+" call s:HL('level15c', 'dalespale',      '', '')
+" call s:HL('level14c', 'dress',          '', '')
+" call s:HL('level13c', 'orange',         '', '')
+" call s:HL('level12c', 'tardis',         '', '')
+" call s:HL('level11c', 'lime',           '', '')
+" call s:HL('level10c', 'toffee',         '', '')
+" call s:HL('level9c',  'saltwatertaffy', '', '')
+" call s:HL('level8c',  'coffee',         '', '')
+" call s:HL('level7c',  'dalespale',      '', '')
+" call s:HL('level6c',  'dress',          '', '')
+" call s:HL('level5c',  'orange',         '', '')
+" call s:HL('level4c',  'tardis',         '', '')
+" call s:HL('level3c',  'lime',           '', '')
+" call s:HL('level2c',  'toffee',         '', '')
+" call s:HL('level1c',  'saltwatertaffy', '', '')
 " }}}
-" ShowMarks {{{
-
-call s:HL('ShowMarksHLl', 'tardis', 'blackgravel')
-call s:HL('ShowMarksHLu', 'tardis', 'blackgravel')
-call s:HL('ShowMarksHLo', 'tardis', 'blackgravel')
-call s:HL('ShowMarksHLm', 'tardis', 'blackgravel')
-
 " }}}
-
-" }}}
-" Filetype-specific {{{
-
-" Clojure {{{
-
-call s:HL('clojureSpecial',  'taffy', '', '')
-call s:HL('clojureDefn',     'taffy', '', '')
-call s:HL('clojureDefMacro', 'taffy', '', '')
-call s:HL('clojureDefine',   'taffy', '', '')
-call s:HL('clojureMacro',    'taffy', '', '')
-call s:HL('clojureCond',     'taffy', '', '')
-
-call s:HL('clojureKeyword', 'orange', '', 'none')
-
-call s:HL('clojureFunc',   'dress', '', 'none')
-call s:HL('clojureRepeat', 'dress', '', 'none')
-
-call s:HL('clojureParen0', 'lightgravel', '', 'none')
-
-call s:HL('clojureAnonArg', 'snow', '', 'bold')
-
-" }}}
-" CSS {{{
-
-if g:badwolf_css_props_highlight
-    call s:HL('cssColorProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssBoxProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssTextProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssRenderProp', 'dirtyblonde', '', 'none')
-    call s:HL('cssGeneratedContentProp', 'dirtyblonde', '', 'none')
-else
-    call s:HL('cssColorProp', 'fg', '', 'none')
-    call s:HL('cssBoxProp', 'fg', '', 'none')
-    call s:HL('cssTextProp', 'fg', '', 'none')
-    call s:HL('cssRenderProp', 'fg', '', 'none')
-    call s:HL('cssGeneratedContentProp', 'fg', '', 'none')
-end
-
-call s:HL('cssValueLength', 'toffee', '', 'bold')
-call s:HL('cssColor', 'toffee', '', 'bold')
-call s:HL('cssBraces', 'lightgravel', '', 'none')
-call s:HL('cssIdentifier', 'orange', '', 'bold')
-call s:HL('cssClassName', 'orange', '', 'none')
-" }}}
-" Javascript {{{
-
-call s:HL('typescriptImport', 'taffy', '', 'bold')
-call s:HL('typescriptCastKeyword', 'taffy', '', 'bold')
-call s:HL('typescriptExport', 'taffy', '', 'bold')
-call s:HL('typescriptMember', 'plain', '', '')
-call s:HL('typescriptObjectLabel', 'plain', '', '')
-
-" }}}
-" Diff {{{
-
-call s:HL('gitDiff', 'lightgravel', '',)
-
-call s:HL('diffRemoved', 'dress', '',)
-call s:HL('diffAdded', 'lime', '',)
-call s:HL('diffFile', 'coal', 'taffy', 'bold')
-call s:HL('diffNewFile', 'coal', 'taffy', 'bold')
-
-call s:HL('diffLine', 'coal', 'orange', 'bold')
-call s:HL('diffSubname', 'orange', '', 'none')
-
-" }}}
-" Django Templates {{{
-
-call s:HL('djangoArgument', 'dirtyblonde', '',)
-call s:HL('djangoTagBlock', 'orange', '')
-call s:HL('djangoVarBlock', 'orange', '')
-" hi djangoStatement guifg=#ff3853 gui=bold
-" hi djangoVarBlock guifg=#f4cf86
-
-" }}}
-" HTML {{{
-
-" Punctuation
-call s:HL('htmlTag',    'darkroast', 'bg', 'none')
-call s:HL('htmlEndTag', 'darkroast', 'bg', 'none')
-
-" Tag names
-call s:HL('htmlTagName',        'coffee', '', 'bold')
-call s:HL('htmlSpecialTagName', 'coffee', '', 'bold')
-call s:HL('htmlSpecialChar',    'lime',   '', 'none')
-
-" Attributes
-call s:HL('htmlArg', 'coffee', '', 'none')
-
-" Stuff inside an <a> tag
-
-if g:badwolf_html_link_underline
-    call s:HL('htmlLink', 'lightgravel', '', 'underline')
-else
-    call s:HL('htmlLink', 'lightgravel', '', 'none')
-endif
-
-" }}}
-" Java {{{
-
-call s:HL('javaClassDecl', 'taffy', '', 'bold')
-call s:HL('javaScopeDecl', 'taffy', '', 'bold')
-call s:HL('javaCommentTitle', 'gravel', '')
-call s:HL('javaDocTags', 'snow', '', 'none')
-call s:HL('javaDocParam', 'dalespale', '', '')
-
-" }}}
-" LaTeX {{{
-
-call s:HL('texStatement', 'tardis', '', 'none')
-call s:HL('texMathZoneX', 'orange', '', 'none')
-call s:HL('texMathZoneA', 'orange', '', 'none')
-call s:HL('texMathZoneB', 'orange', '', 'none')
-call s:HL('texMathZoneC', 'orange', '', 'none')
-call s:HL('texMathZoneD', 'orange', '', 'none')
-call s:HL('texMathZoneE', 'orange', '', 'none')
-call s:HL('texMathZoneV', 'orange', '', 'none')
-call s:HL('texMathZoneX', 'orange', '', 'none')
-call s:HL('texMath', 'orange', '', 'none')
-call s:HL('texMathMatcher', 'orange', '', 'none')
-call s:HL('texRefLabel', 'dirtyblonde', '', 'none')
-call s:HL('texRefZone', 'lime', '', 'none')
-call s:HL('texComment', 'darkroast', '', 'none')
-call s:HL('texDelimiter', 'orange', '', 'none')
-call s:HL('texZone', 'brightgravel', '', 'none')
-
-augroup badwolf_tex
-    au!
-
-    au BufRead,BufNewFile *.tex syn region texMathZoneV start="\\(" end="\\)\|%stopzone\>" keepend contains=@texMathZoneGroup
-    au BufRead,BufNewFile *.tex syn region texMathZoneX start="\$" skip="\\\\\|\\\$" end="\$\|%stopzone\>" keepend contains=@texMathZoneGroup
-augroup END
-
-" }}}
-" LessCSS {{{
-
-call s:HL('lessVariable', 'lime', '', 'none')
-
-" }}}
-" Lispyscript {{{
-
-call s:HL('lispyscriptDefMacro', 'lime', '', '')
-call s:HL('lispyscriptRepeat', 'dress', '', 'none')
-
-" }}}
-" Mail {{{
-
-call s:HL('mailSubject', 'orange', '', 'bold')
-call s:HL('mailHeader', 'lightgravel', '', '')
-call s:HL('mailHeaderKey', 'lightgravel', '', '')
-call s:HL('mailHeaderEmail', 'snow', '', '')
-call s:HL('mailURL', 'toffee', '', 'underline')
-call s:HL('mailSignature', 'gravel', '', 'none')
-
-call s:HL('mailQuoted1', 'gravel', '', 'none')
-call s:HL('mailQuoted2', 'dress', '', 'none')
-call s:HL('mailQuoted3', 'dirtyblonde', '', 'none')
-call s:HL('mailQuoted4', 'orange', '', 'none')
-call s:HL('mailQuoted5', 'lime', '', 'none')
-
-" }}}
-" Markdown {{{
-
-call s:HL('markdownHeadingRule', 'lightgravel', '', 'bold')
-call s:HL('markdownHeadingDelimiter', 'lightgravel', '', 'bold')
-call s:HL('markdownOrderedListMarker', 'lightgravel', '', 'bold')
-call s:HL('markdownListMarker', 'lightgravel', '', 'bold')
-call s:HL('markdownItalic', 'snow', '', 'bold')
-call s:HL('markdownBold', 'snow', '', 'bold')
-call s:HL('markdownH1', 'orange', '', 'bold')
-call s:HL('markdownH2', 'lime', '', 'bold')
-call s:HL('markdownH3', 'lime', '', 'none')
-call s:HL('markdownH4', 'lime', '', 'none')
-call s:HL('markdownH5', 'lime', '', 'none')
-call s:HL('markdownH6', 'lime', '', 'none')
-call s:HL('markdownLinkText', 'toffee', '', 'underline')
-call s:HL('markdownIdDeclaration', 'toffee')
-call s:HL('markdownAutomaticLink', 'toffee', '', 'bold')
-call s:HL('markdownUrl', 'toffee', '', 'bold')
-call s:HL('markdownUrldelimiter', 'lightgravel', '', 'bold')
-call s:HL('markdownLinkDelimiter', 'lightgravel', '', 'bold')
-call s:HL('markdownLinkTextDelimiter', 'lightgravel', '', 'bold')
-call s:HL('markdownCodeDelimiter', 'dirtyblonde', '', 'bold')
-call s:HL('markdownCode', 'dirtyblonde', '', 'none')
-call s:HL('markdownCodeBlock', 'dirtyblonde', '', 'none')
-
-" }}}
-" MySQL {{{
-
-call s:HL('mysqlSpecial', 'dress', '', 'bold')
-
-" }}}
-" Python {{{
-
-hi def link pythonOperator Operator
-call s:HL('pythonBuiltin',     'dress')
-call s:HL('pythonBuiltinObj',  'dress')
-call s:HL('pythonBuiltinFunc', 'dress')
-call s:HL('pythonEscape',      'dress')
-call s:HL('pythonException',   'lime', '', 'bold')
-call s:HL('pythonExceptions',  'lime', '', 'none')
-call s:HL('pythonPrecondit',   'lime', '', 'none')
-call s:HL('pythonDecorator',   'taffy', '', 'none')
-call s:HL('pythonRun',         'gravel', '', 'bold')
-call s:HL('pythonCoding',      'gravel', '', 'bold')
-
-" }}}
-" SLIMV {{{
-
-" Rainbow parentheses
-call s:HL('hlLevel0', 'gravel')
-call s:HL('hlLevel1', 'orange')
-call s:HL('hlLevel2', 'saltwatertaffy')
-call s:HL('hlLevel3', 'dress')
-call s:HL('hlLevel4', 'coffee')
-call s:HL('hlLevel5', 'dirtyblonde')
-call s:HL('hlLevel6', 'orange')
-call s:HL('hlLevel7', 'saltwatertaffy')
-call s:HL('hlLevel8', 'dress')
-call s:HL('hlLevel9', 'coffee')
-
-" }}}
-" Vim {{{
-
-call s:HL('VimCommentTitle', 'lightgravel', '', 'bold')
-
-call s:HL('VimMapMod',    'dress', '', 'none')
-call s:HL('VimMapModKey', 'dress', '', 'none')
-call s:HL('VimNotation', 'dress', '', 'none')
-call s:HL('VimBracket', 'dress', '', 'none')
-
-" }}}
-
-" }}}
-
+" " Filetype-specific {{{
+" " CSS {{{
+"
+" if g:badwolf_css_props_highlight
+"     call s:HL('cssColorProp', 'dirtyblonde', '', 'none')
+"     call s:HL('cssBoxProp', 'dirtyblonde', '', 'none')
+"     call s:HL('cssTextProp', 'dirtyblonde', '', 'none')
+"     call s:HL('cssRenderProp', 'dirtyblonde', '', 'none')
+"     call s:HL('cssGeneratedContentProp', 'dirtyblonde', '', 'none')
+" else
+"     call s:HL('cssColorProp', 'fg', '', 'none')
+"     call s:HL('cssBoxProp', 'fg', '', 'none')
+"     call s:HL('cssTextProp', 'fg', '', 'none')
+"     call s:HL('cssRenderProp', 'fg', '', 'none')
+"     call s:HL('cssGeneratedContentProp', 'fg', '', 'none')
+" end
+"
+" call s:HL('cssValueLength', 'toffee', '', 'bold')
+" call s:HL('cssColor', 'toffee', '', 'bold')
+" call s:HL('cssBraces', 'lightgravel', '', 'none')
+" call s:HL('cssIdentifier', 'orange', '', 'bold')
+" call s:HL('cssClassName', 'orange', '', 'none')
+" " }}}
+" " Javascript {{{
+"
+" call s:HL('typescriptImport', 'taffy', '', 'bold')
+" call s:HL('typescriptCastKeyword', 'taffy', '', 'bold')
+" call s:HL('typescriptExport', 'taffy', '', 'bold')
+" call s:HL('typescriptMember', 'plain', '', '')
+" call s:HL('typescriptObjectLabel', 'plain', '', '')
+"
+" " }}}
+" " Diff {{{
+"
+" call s:HL('gitDiff', 'lightgravel', '',)
+"
+" call s:HL('diffRemoved', 'dress', '',)
+" call s:HL('diffAdded', 'lime', '',)
+" call s:HL('diffFile', 'coal', 'taffy', 'bold')
+" call s:HL('diffNewFile', 'coal', 'taffy', 'bold')
+"
+" call s:HL('diffLine', 'coal', 'orange', 'bold')
+" call s:HL('diffSubname', 'orange', '', 'none')
+"
+" " }}}
+" " HTML {{{
+"
+" " Punctuation
+" call s:HL('htmlTag',    'darkroast', 'bg', 'none')
+" call s:HL('htmlEndTag', 'darkroast', 'bg', 'none')
+"
+" " Tag names
+" call s:HL('htmlTagName',        'coffee', '', 'bold')
+" call s:HL('htmlSpecialTagName', 'coffee', '', 'bold')
+" call s:HL('htmlSpecialChar',    'lime',   '', 'none')
+"
+" " Attributes
+" call s:HL('htmlArg', 'coffee', '', 'none')
+"
+" " Stuff inside an <a> tag
+"
+" if g:badwolf_html_link_underline
+"     call s:HL('htmlLink', 'lightgravel', '', 'underline')
+" else
+"     call s:HL('htmlLink', 'lightgravel', '', 'none')
+" endif
+"
+" " }}}
+" " Java {{{
+"
+" call s:HL('javaClassDecl', 'taffy', '', 'bold')
+" call s:HL('javaScopeDecl', 'taffy', '', 'bold')
+" call s:HL('javaCommentTitle', 'gravel', '')
+" call s:HL('javaDocTags', 'snow', '', 'none')
+" call s:HL('javaDocParam', 'dalespale', '', '')
+"
+" " }}}
+" " LaTeX {{{
+"
+" call s:HL('texStatement', 'tardis', '', 'none')
+" call s:HL('texMathZoneX', 'orange', '', 'none')
+" call s:HL('texMathZoneA', 'orange', '', 'none')
+" call s:HL('texMathZoneB', 'orange', '', 'none')
+" call s:HL('texMathZoneC', 'orange', '', 'none')
+" call s:HL('texMathZoneD', 'orange', '', 'none')
+" call s:HL('texMathZoneE', 'orange', '', 'none')
+" call s:HL('texMathZoneV', 'orange', '', 'none')
+" call s:HL('texMathZoneX', 'orange', '', 'none')
+" call s:HL('texMath', 'orange', '', 'none')
+" call s:HL('texMathMatcher', 'orange', '', 'none')
+" call s:HL('texRefLabel', 'dirtyblonde', '', 'none')
+" call s:HL('texRefZone', 'lime', '', 'none')
+" call s:HL('texComment', 'darkroast', '', 'none')
+" call s:HL('texDelimiter', 'orange', '', 'none')
+" call s:HL('texZone', 'brightgravel', '', 'none')
+"
+" augroup badwolf_tex
+"     au!
+"     au BufRead,BufNewFile *.tex syn region texMathZoneV start="\\(" end="\\)\|%stopzone\>" keepend contains=@texMathZoneGroup
+"     au BufRead,BufNewFile *.tex syn region texMathZoneX start="\$" skip="\\\\\|\\\$" end="\$\|%stopzone\>" keepend contains=@texMathZoneGroup
+" augroup end
+"
+" " }}}
+" " Markdown {{{
+"
+" call s:HL('markdownHeadingRule', 'lightgravel', '', 'bold')
+" call s:HL('markdownHeadingDelimiter', 'lightgravel', '', 'bold')
+" call s:HL('markdownOrderedListMarker', 'lightgravel', '', 'bold')
+" call s:HL('markdownListMarker', 'lightgravel', '', 'bold')
+" call s:HL('markdownItalic', 'snow', '', 'bold')
+" call s:HL('markdownBold', 'snow', '', 'bold')
+" call s:HL('markdownH1', 'orange', '', 'bold')
+" call s:HL('markdownH2', 'lime', '', 'bold')
+" call s:HL('markdownH3', 'lime', '', 'none')
+" call s:HL('markdownH4', 'lime', '', 'none')
+" call s:HL('markdownH5', 'lime', '', 'none')
+" call s:HL('markdownH6', 'lime', '', 'none')
+" call s:HL('markdownLinkText', 'toffee', '', 'underline')
+" call s:HL('markdownIdDeclaration', 'toffee')
+" call s:HL('markdownAutomaticLink', 'toffee', '', 'bold')
+" call s:HL('markdownUrl', 'toffee', '', 'bold')
+" call s:HL('markdownUrldelimiter', 'lightgravel', '', 'bold')
+" call s:HL('markdownLinkDelimiter', 'lightgravel', '', 'bold')
+" call s:HL('markdownLinkTextDelimiter', 'lightgravel', '', 'bold')
+" call s:HL('markdownCodeDelimiter', 'dirtyblonde', '', 'bold')
+" call s:HL('markdownCode', 'dirtyblonde', '', 'none')
+" call s:HL('markdownCodeBlock', 'dirtyblonde', '', 'none')
+"
+" " }}}
+" " MySQL {{{
+"
+" call s:HL('mysqlSpecial', 'dress', '', 'bold')
+"
+" " }}}
+" " Python {{{
+"
+" hi def link pythonOperator Operator
+" call s:HL('pythonBuiltin',     'dress')
+" call s:HL('pythonBuiltinObj',  'dress')
+" call s:HL('pythonBuiltinFunc', 'dress')
+" call s:HL('pythonEscape',      'dress')
+" call s:HL('pythonException',   'lime', '', 'bold')
+" call s:HL('pythonExceptions',  'lime', '', 'none')
+" call s:HL('pythonPrecondit',   'lime', '', 'none')
+" call s:HL('pythonDecorator',   'taffy', '', 'none')
+" call s:HL('pythonRun',         'gravel', '', 'bold')
+" call s:HL('pythonCoding',      'gravel', '', 'bold')
+"
+" " }}}
+" " SLIMV {{{
+"
+" " Rainbow parentheses
+" " call s:HL('hlLevel0', 'gravel')
+" " call s:HL('hlLevel1', 'orange')
+" " call s:HL('hlLevel2', 'saltwatertaffy')
+" " call s:HL('hlLevel3', 'dress')
+" " call s:HL('hlLevel4', 'coffee')
+" " call s:HL('hlLevel5', 'dirtyblonde')
+" " call s:HL('hlLevel6', 'orange')
+" " call s:HL('hlLevel7', 'saltwatertaffy')
+" " call s:HL('hlLevel8', 'dress')
+" " call s:HL('hlLevel9', 'coffee')
+"
+" " }}}
+" " Vim {{{
+"
+" call s:HL('VimCommentTitle', 'lightgravel', '', 'bold')
+"
+" call s:HL('VimMapMod',    'dress', '', 'none')
+" call s:HL('VimMapModKey', 'dress', '', 'none')
+" call s:HL('VimNotation', 'dress', '', 'none')
+" call s:HL('VimBracket', 'dress', '', 'none')
+"
+" " }}}
+" " }}}
