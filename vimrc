@@ -35,8 +35,6 @@
     set secure
     " Enable line numbers
     set number
-    " Add a bit extra margin to the left
-    set foldcolumn=1
     " Enable syntax highlighting
     syntax on
     " Syntax coloring lines that are too long just slows down the world
@@ -571,7 +569,7 @@
 " }}}
 
 " Debug {{{
-map <f10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . "> " .
+map <leader>mm :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . "> " .
     \ "trans<" . synIDattr(synID(line("."),col("."),0),"name") . "> " .
     \ "lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . "> " .
     \ " FG<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#") . "> " .
