@@ -1,4 +1,4 @@
-" vim: ts=4 et fmr={{{,}}} fdl=0 fdm=marker
+" vim: ts=4 et fmr={{{,}}} fdl=1 fdm=marker
 " Options {{{
 
     " Make Vim more useful
@@ -520,40 +520,23 @@
     " let g:detectindent_preferred_indent = 4
     " let g:detectindent_preferred_when_mixed = 1
 
-    if has("autocmd")
-        " Don't highlight the current line if entering another window
-        autocmd WinEnter * set cursorline
-        autocmd WinLeave * set nocursorline
+    " Don't highlight the current line if entering another window
+    autocmd WinEnter * set cursorline
+    autocmd WinLeave * set nocursorline
 
-        " " Keep folds layout
-        " autocmd BufWinLeave ?* mkview
-        " autocmd BufWinEnter ?* silent loadview
+    " " Keep folds layout
+    " autocmd BufWinLeave ?* mkview
+    " autocmd BufWinEnter ?* silent loadview
 
-        " Jump to last cursor position unless it's invalid or in an event handler
-        autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal! g'\"" |
-            \ endif
+    " Jump to last cursor position unless it's invalid or in an event handler
+    autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal! g'\"" |
+        \ endif
 
-        " Enable file type detection
-        filetype plugin indent on
+    " Auto-detect indent settings
+    " autocmd BufReadPost * :DetectIndent
 
-        " Markdown
-        autocmd BufNewFile,BufRead *.md set filetype=markdown
-
-        " JSX
-        autocmd BufNewFile,BufRead *.jsx setfiletype javascript.jsx
-        autocmd BufNewFile,BufRead *.tsx setfiletype typescript.jsx
-
-        " Auto-detect indent settings
-        " autocmd BufReadPost * :DetectIndent
-
-        " Use tabs for makefiles
-        autocmd FileType make setlocal noexpandtab
-
-        " Comments in JSON
-        autocmd FileType json syntax match Comment +\/\/.\+$+
-    endif
 
 " }}}
 " Debug {{{
