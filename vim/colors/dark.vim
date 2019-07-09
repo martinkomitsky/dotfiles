@@ -46,9 +46,9 @@ let s:colors.green = ['6daf92', 72]
 " Keywords
 let s:colors.blue = ['86a6ef', 111]
 " Booleans
-let s:colors.pink = ['d78787', 174]
+let s:colors.pink = ['f18c7a', 174]
 " Errors
-let s:colors.indianred = ['EA2A30', 167]
+let s:colors.indianred = ['ee3030', 167]
 
 " }}}
 " Highlighting Function {{{
@@ -115,7 +115,7 @@ call s:HL('Visual',    '',  'darkgrey')
 call s:HL('VisualNOS', '',  'darkgrey')
 
 call s:HL('Search',    'black', 'gold')
-call s:HL('IncSearch', 'black', 'gold')
+call s:HL('IncSearch', 'black', 'gold', 'none')
 
 " }}}
 " Gutter {{{

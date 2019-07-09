@@ -1,5 +1,4 @@
 " vim: ts=4 et fmr={{{,}}} fdl=0 fdm=marker
-
 " Options {{{
 
     " Make Vim more useful
@@ -127,115 +126,113 @@
     endtry
 
 " }}}
-
 " Insert mode key bindings {{{
 
     " Alternative Esc (iPad)
-    imap § <Esc>
+    inoremap § <Esc>
 
     " Save file Ctrl-s
-    imap <C-s> <Esc>:w<CR>a
+    inoremap <C-s> <Esc>:w<CR>a
     " Moves cursor
-    imap <C-e> <End>
-    imap <C-a> <Home>
+    inoremap <C-e> <End>
+    inoremap <C-a> <Home>
     " <M-b> & <M-w>
-    imap ∫ <C-o>b
-    imap ∑ <C-o>e<Right>
-    " Delete and backspace
-    imap <C-d> <Del>
-    imap <C-h> <BS>
+    inoremap ∫ <C-o>b
+    inoremap ∑ <C-o>e<Right>
+    " Deluue and backspace
+    inoremap <C-d> <Del>
+    inoremap <C-h> <BS>
 
     " Toggle wrapping mode
-    imap <F4> <C-o>:setlocal wrap!<CR>
+    inoremap <F4> <C-o>:setlocal wrap!<CR>
     " Toggle spell check
-    imap <F5> <C-o>:setlocal spell! spelllang=en<CR>
+    inoremap <F5> <C-o>:setlocal spell! spelllang=en<CR>
 
     " Shift+Tab decreases indentation
     inoremap <S-Tab> <Esc><<i
 
     " Map the arrow keys to be based on display lines, not physical lines
-    " imap <Down> <Esc>gja
-    " imap <Up> <Esc>gka
+    " inoremap <Down> <Esc>gja
+    " inoremap <Up> <Esc>gka
 
     " Disable the arrow keys
-    " imap <up> <nop>
-    " imap <down> <nop>
-    " imap <left> <nop>
-    " imap <right> <nop>
+    " inoremap <up> <nop>
+    " inoremap <down> <nop>
+    " inoremap <left> <nop>
+    " inoremap <right> <nop>
 " }}}
-
 " Normal mode key bindings {{{
 
     " Alternative Esc (iPad)
-    map § <Esc>
+    nnoremap § <Esc>
 
     " Remap 0 to first non-blank character
-    map 0 ^
+    nnoremap 0 ^
     " Save file Ctrl-s
-    nmap <C-s> :w<CR>
+    nnoremap <C-s> :w<CR>
     " Toggle folding
     " nnoremap <space> za
 
     " Toggle wrapping mode
-    map <F4> :setlocal wrap!<CR>
+    nnoremap <F4> :setlocal wrap!<CR>
     " Toggle spell check
-    map <F5> :setlocal spell! spelllang=en<CR>
+    nnoremap <F5> :setlocal spell! spelllang=en<CR>
     " Save and run make
-    map <F9> :silent w<CR>:silent make<CR>:unsilent redraw!<CR>:cwindow<CR>
+    nnoremap <F9> :silent w<CR>:silent make<CR>:unsilent redraw!<CR>:cwindow<CR>
 
     " Map the arrow keys to be based on display lines, not physical lines
-    map <Down> gj
-    map <Up> gk
+    nnoremap <Down> gj
+    nnoremap <Up> gk
 
     " Disable the arrow keys
-    " map <up> <nop>
-    " map <down> <nop>
-    " map <left> <nop>
-    " map <right> <nop>
+    " nnoremap <up> <nop>
+    " nnoremap <down> <nop>
+    " nnoremap <left> <nop>
+    " nnoremap <right> <nop>
 
     " Disable highlight
-    map <silent> <leader><cr> :noh<cr>
+    nnoremap <silent> <leader><cr> :noh<cr>
     " Switch CWD to the directory of the open buffer
-    map <leader>cd :cd %:p:h<cr>:pwd<cr>
+    nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
     " Quickly edit/reload the vimrc file
-    nmap <silent> <leader>ve :e $MYVIMRC<CR>
-    nmap <silent> <leader>vs :so $MYVIMRC<CR>
+    nnoremap <silent> <leader>ve :e $MYVIMRC<CR>
+    nnoremap <silent> <leader>vs :so $MYVIMRC<CR>
 
     " Upper/lower word
-    nmap <leader>u viwU
-    nmap <leader>l viwu
+    nnoremap <leader>u viwU
+    nnoremap <leader>l viwu
 
     " Upper/lower first char of word
-    nmap <leader>U gewvU
-    nmap <leader>L gewvu
+    nnoremap <leader>U gewvU
+    nnoremap <leader>L gewvu
 
     " Go to the last active tab
     let g:lasttab = 1
-    nmap <leader>, :exe "tabn ".g:lasttab<cr>
+    nnoremap <leader>, :exe "tabn ".g:lasttab<cr>
     autocmd TabLeave * let g:lasttab = tabpagenr()
 
     " Switch between tabs
-    nmap <C-j> :tabp<CR>
-    nmap <C-k> :tabn<CR>
+    nnoremap <C-j> :tabp<CR>
+    nnoremap <C-k> :tabn<CR>
 
     " Map <M-h,j,k,l> to resize windows
-    nmap <silent> ˙ <C-w><
-    nmap <silent> ∆ <C-W>-
-    nmap <silent> ˚ <C-W>+
-    nmap <silent> ¬ <C-w>>
+    nnoremap <silent> ˙ <C-w><
+    nnoremap <silent> ∆ <C-W>-
+    nnoremap <silent> ˚ <C-W>+
+    nnoremap <silent> ¬ <C-w>>
 
     " Exit to shell
-    nmap <leader>z :sh<cr>
+    nnoremap <leader>z :sh<cr>
 
     " Paste from the system clipboard
-    nmap <leader>p "*p
+    nnoremap <leader>p "*p
 
     " Aligning
-    nmap <Leader>a= :Tabularize /=<CR>
-    nmap <Leader>a: :Tabularize /:<CR>
+    nnoremap <Leader>a= :Tabularize /=<CR>
+    nnoremap <Leader>a: :Tabularize /:<CR>
 
     " Strip trailing whitespace
-    noremap <leader>ss :call StripWhitespace()<CR>
+    nnoremap <leader>ss :call StripWhitespace()<CR>
     function! StripWhitespace()
         let save_cursor = getpos(".")
         let old_query = getreg('/')
@@ -254,14 +251,13 @@
             redraw!
         endif
     endfunction
-    map <leader>mv :call RenameFile()<cr>
+    nnoremap <leader>mv :call RenameFile()<cr>
 
 " }}}
-
 " Visual mode {{{
 
     " Alternative Esc (iPad)
-    vmap § <Esc>
+    vnoremap § <Esc>
 
     " Pressing * or # searches for the current selection
     function! s:VSetSearch()
@@ -282,30 +278,29 @@
     vnoremap <leader>c "*y
 
     " Aligning
-    vmap <Leader>a= :Tabularize /=<CR>
-    vmap <Leader>a: :Tabularize /:<CR>
+    vnoremap <Leader>a= :Tabularize /=<CR>
+    vnoremap <Leader>a: :Tabularize /:<CR>
 
 " }
 
 " Command mode key bindings {
 
     " Alternative Esc (iPad)
-    cmap § <Esc>
+    cnoremap § <Esc>
 
     " Save a file as root
-    cmap w!! w !sudo tee % >/dev/null
+    cnoremap w!! w !sudo tee % >/dev/null
     " Moves cursor
-    cmap <C-a> <Home>
-    cmap <C-e> <End>
-    cmap <M-b> <S-Left>
-    cmap <M-f> <S-Right>
+    cnoremap <C-a> <Home>
+    cnoremap <C-e> <End>
+    cnoremap <M-b> <S-Left>
+    cnoremap <M-f> <S-Right>
 
     " Quick open file in the same directory as the current file
     cnoremap %% <C-R>=expand('%:h') . '/'<cr>
     map <leader>e :edit %%
 
 " }}}
-
 " Pathogen {{{
 
     let g:pathogen_disabled = []
@@ -318,24 +313,21 @@
     execute pathogen#infect()
 
 " }}}
-
 " Yankring {{{
 
     let g:yankring_history_dir = '~/.vim'
 
 " }}}
-
 " Tagbar {{{
 
     " Toggle Tagbar
-    nmap <F8> :TagbarToggle<CR>
+    nnoremap <F8> :TagbarToggle<CR>
     map <leader>tb :TagbarToggle<cr>
     " Auto focus Tagbar and close
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
 
 " }}}
-
 " fzf {{{
 
     set runtimepath+=/usr/local/opt/fzf
@@ -346,11 +338,10 @@
     nnoremap <leader>t :Tags<CR>
 
 " }}}
-
 " CoC {{{
 
     " Use tab for trigger completion with characters ahead and navigate.
-    " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+    " Use command ':verbose inoremap <tab>' to make sure tab is not mapped by other plugin.
     inoremap <silent><expr> <TAB>
                 \ pumvisible() ? "\<C-n>" :
                 \ <SID>check_back_space() ? "\<TAB>" :
@@ -370,14 +361,14 @@
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
     " Use `[c` and `]c` to navigate diagnostics
-    nmap <silent> [c <Plug>(coc-diagnostic-prev)
-    nmap <silent> ]c <Plug>(coc-diagnostic-next)
+    nnoremap <silent> [c <Plug>(coc-diagnostic-prev)
+    nnoremap <silent> ]c <Plug>(coc-diagnostic-next)
 
     " Remap keys for gotos
-    nmap <silent> gd <Plug>(coc-definition)
-    nmap <silent> gy <Plug>(coc-type-definition)
-    nmap <silent> gi <Plug>(coc-implementation)
-    nmap <silent> gr <Plug>(coc-references)
+    nnoremap <silent> gd <Plug>(coc-definition)
+    nnoremap <silent> gy <Plug>(coc-type-definition)
+    nnoremap <silent> gi <Plug>(coc-implementation)
+    nnoremap <silent> gr <Plug>(coc-references)
 
     " Close the preview window when completion is done
     autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -393,11 +384,11 @@
     endfunction
 
     " Remap for rename current word
-    nmap <leader>rn <Plug>(coc-rename)
+    nnoremap <leader>rn <Plug>(coc-rename)
 
     " Remap for format selected region
-    xmap <leader>r <Plug>(coc-format-selected)
-    nmap <leader>r <Plug>(coc-format-selected)
+    xnoremap <leader>r <Plug>(coc-format-selected)
+    nnoremap <leader>r <Plug>(coc-format-selected)
 
     augroup mygroup
         autocmd!
@@ -408,18 +399,18 @@
     augroup end
 
     " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-    xmap <leader>a <Plug>(coc-codeaction-selected)
-    nmap <leader>a <Plug>(coc-codeaction-selected)
+    xnoremap <leader>a <Plug>(coc-codeaction-selected)
+    nnoremap <leader>a <Plug>(coc-codeaction-selected)
 
     " Remap for do codeAction of current line
-    nmap <leader>ac <Plug>(coc-codeaction)
+    nnoremap <leader>ac <Plug>(coc-codeaction)
     " Fix autofix problem of current line
-    nmap <leader>qf <Plug>(coc-fix-current)
+    nnoremap <leader>qf <Plug>(coc-fix-current)
 
     " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-    nmap <silent> <TAB> <Plug>(coc-range-select)
-    xmap <silent> <TAB> <Plug>(coc-range-select)
-    xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+    nnoremap <silent> <TAB> <Plug>(coc-range-select)
+    xnoremap <silent> <TAB> <Plug>(coc-range-select)
+    xnoremap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
     " Use `:Format` to format current buffer
     command! -nargs=0 Format :call CocAction('format')
@@ -463,7 +454,6 @@
     endif
 
 " }}}
-
 " Status line {{{
 
     " function! CocStatus() abort
@@ -524,7 +514,6 @@
     nnoremap <silent> <leader>h :call TogglePresentationMode()<CR>
 
 " }}}
-
 " Automatic commands {{{
 
     " let g:detectindent_preferred_expandtab = 1
@@ -567,7 +556,6 @@
     endif
 
 " }}}
-
 " Debug {{{
 map <leader>mm :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . "> " .
     \ "trans<" . synIDattr(synID(line("."),col("."),0),"name") . "> " .
@@ -575,7 +563,6 @@ map <leader>mm :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . "> 
     \ " FG<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#") . "> " .
     \ " BG<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"bg#") . ">" <CR>
 " }}}
-
 " Read local settings {{{
 
     try
