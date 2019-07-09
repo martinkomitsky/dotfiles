@@ -99,6 +99,8 @@ call s:HL('CursorLine',   '', 'darkgrey', 'none')
 call s:HL('CursorLineNr', 'mediumgrey', '')
 call s:HL('CursorColumn', '', 'darkgrey', 'none')
 
+call s:HL('ColorColumn', '', 'darkestgrey')
+
 call s:HL('VertSplit', 'grey', 'bg', 'none')
 
 call s:HL('StatusLine',   'black', 'mediumgrey', 'none')

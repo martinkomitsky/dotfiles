@@ -112,10 +112,8 @@
 
     " Stop indenting when pasting
     set pastetoggle=<f2>
-
-" }
-
-" Color scheme {
+" }}}
+" Color scheme {{{
 
     " True colors
     set termguicolors
