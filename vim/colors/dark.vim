@@ -94,7 +94,6 @@ endfunction
 " General/UI {{{
 
 call s:HL('Normal', 'whitestgrey', 'blackestgrey')
-call s:HL('Normal', 'lightgrey', 'blackestgrey')
 
 call s:HL('Folded', 'mediumgrey', 'bg', 'none')
 
@@ -134,9 +133,9 @@ call s:HL('FoldColumn', 'darkgrey','bg')
 " }}}
 " Syntax highlighting {{{
 
-call s:HL('Special', 'fg')
-call s:HL('Todo', 'fg', 'bg', 'bold')
-call s:HL('Operator', 'fg', '', 'none')
+call s:HL('Special', 'lightgrey')
+call s:HL('Todo', 'lightgrey', 'bg', 'bold')
+call s:HL('Operator', 'lightgrey', '', 'none')
 
 call s:HL('Comment', 'mediumgrey')
 
@@ -156,10 +155,10 @@ call s:HL('Function',   'whitestgrey', '', 'none')
 call s:HL('Type',       'whitestgrey')
 
 " Preprocessor directives are bold
-call s:HL('PreProc',   'fg', '', 'bold')
-call s:HL('Macro',     'fg', '', 'bold')
-call s:HL('Define',    'fg', '', 'bold')
-call s:HL('PreCondit', 'fg', '', 'bold')
+call s:HL('PreProc',   'lightgrey', '', 'bold')
+call s:HL('Macro',     'lightgrey', '', 'bold')
+call s:HL('Define',    'lightgrey', '', 'bold')
+call s:HL('PreCondit', 'lightgrey', '', 'bold')
 
 " Constants are pink
 call s:HL('Constant', 'pink', '', 'none')
@@ -187,8 +186,8 @@ call s:HL('MatchParen', '', 'grey')
 " }}}
 " Completion Menu {{{
 
-call s:HL('Pmenu',      'fg', 'darkestgrey')
-call s:HL('PmenuSel',   'fg', 'grey')
+call s:HL('Pmenu',      'lightgrey', 'darkestgrey')
+call s:HL('PmenuSel',   'lightgrey', 'grey')
 call s:HL('PmenuSbar',  '',   'darkestgrey')
 call s:HL('PmenuThumb', '',   'darkgrey')
 
@@ -197,7 +196,7 @@ call s:HL('PmenuThumb', '',   'darkgrey')
 
 call s:HL('diffRemoved',   'indianred', 'bg')
 call s:HL('diffAdded',     'green',     'bg')
-call s:HL('diffIndexLine', 'fg', 'bg', 'none')
+call s:HL('diffIndexLine', 'lightgrey', 'bg', 'none')
 
 " }}}
 
