@@ -187,10 +187,9 @@ call s:HL('PmenuThumb', '',   'darkgrey')
 " }}}
 " Diffs {{{
 
-call s:HL('DiffDelete', 'black', 'black')
-call s:HL('DiffAdd',    '',      'darkestgrey')
-call s:HL('DiffChange', '',      'darkgrey')
-call s:HL('DiffText',   '',      'darkestgrey', 'bold')
+call s:HL('diffRemoved',   'indianred', 'bg')
+call s:HL('diffAdded',     'green',     'bg')
+call s:HL('diffIndexLine', 'fg', 'bg', 'none')
 
 " }}}
 
