@@ -135,6 +135,8 @@ call s:HL('Operator', 'fg', '', 'none')
 
 call s:HL('Comment', 'mediumgrey')
 
+call s:HL('Title', 'whitestgrey')
+
 " Control flow is blue
 call s:HL('Statement',   'blue', '', 'none')
 call s:HL('Keyword',     'blue', '', 'none')
