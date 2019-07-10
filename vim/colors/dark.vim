@@ -49,6 +49,8 @@ let s:colors.blue = ['86a6ef', 111]
 let s:colors.pink = ['f18c7a', 174]
 " Errors
 let s:colors.indianred = ['ee3030', 167]
+" Warnings
+let s:colors.orange = ['ff8700', 208]
 
 " }}}
 " Highlighting Function {{{
@@ -172,10 +174,11 @@ call s:HL('String',    'green')
 call s:HL('Character', 'green')
 
 " Links are normal
-call s:HL('Underlined', 'fg', 'bg', 'none')
+call s:HL('Underlined', 'fg', '', 'none')
 
 " Misc
 call s:HL('Error', 'indianred', 'bg')
+call s:HL('WarningMsg', 'orange', 'bg')
 call s:HL('Debug',  '',   '',  'bold')
 call s:HL('Ignore', 'grey')
 
