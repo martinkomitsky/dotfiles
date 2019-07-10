@@ -91,6 +91,7 @@ endfunction
 " }}}
 " General/UI {{{
 
+call s:HL('Normal', 'whitestgrey', 'blackestgrey')
 call s:HL('Normal', 'lightgrey', 'blackestgrey')
 
 call s:HL('Folded', 'mediumgrey', 'bg', 'none')
@@ -105,6 +106,8 @@ call s:HL('VertSplit', 'grey', 'bg', 'none')
 
 call s:HL('StatusLine',   'black', 'mediumgrey', 'none')
 call s:HL('StatusLineNC', 'black', 'grey', 'none')
+
+call s:HL('WildMenu',   'mediumgrey', 'darkgrey')
 
 call s:HL('TabLine', 'mediumgrey', 'darkestgrey', 'none')
 call s:HL('TabLineFill', 'darkestgrey')

@@ -544,6 +544,9 @@ map <leader>mm :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . "> 
     \ " FG<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#") . "> " .
     \ " BG<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"bg#") . ">" <CR>
 " }}}
+" Typescript {{{
+    let g:yats_host_keyword = 0
+" }}}
 " Read local settings {{{
 
     try
