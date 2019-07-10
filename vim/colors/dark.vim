@@ -43,6 +43,8 @@ let s:colors.gold = ['ffc85d', 221]
 let s:colors.darkgold = ['dabc26', 178]
 " Strings
 let s:colors.green = ['6daf92', 72]
+" Types
+let s:colors.seagreen = ['afd787', 150]
 " Keywords
 let s:colors.blue = ['86a6ef', 111]
 " Booleans
@@ -153,7 +155,8 @@ call s:HL('Exception',   'blue', '', 'none')
 " Functions and variable declarations are white
 call s:HL('Identifier', 'whitestgrey', '', 'none')
 call s:HL('Function',   'whitestgrey', '', 'none')
-call s:HL('Type',       'whitestgrey')
+
+call s:HL('Type', 'seagreen')
 
 " Preprocessor directives are bold
 call s:HL('PreProc',   'fg', '', 'bold')

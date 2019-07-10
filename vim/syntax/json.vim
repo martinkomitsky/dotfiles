@@ -1,3 +1,5 @@
 " Comments in JSON
-syntax match Comment +\/\/.\+$+
+" syntax match Comment +\/\/.\+$+
+
+highlight link jsonKeyword Identifier
 

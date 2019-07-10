@@ -6,14 +6,19 @@ highlight link typescriptFuncCallArg Identifier
 highlight link typescriptConsoleMethod Function
 highlight link typescriptStringMethod Function
 highlight link typescriptGlobal Identifier
-highlight link typescriptBlock Identifier
 highlight link typescriptIdentifierName Identifier
 highlight link typescriptProp Identifier
 highlight link typescriptCall Identifier
 highlight link typescriptArrowFunc Normal
+highlight link typescriptArrowFuncArg Identifier
 highlight link typescriptBraces Normal
+highlight link typescriptEndColons Normal
 highlight link tsxEscJs Identifier
 highlight link tsxTag Comment
 highlight link tsxCloseTag Comment
 highlight link tsxIntrinsicTagName Normal
 highlight link tsxAttrib Normal
+highlight link tsxIntrinsicTagName Normal
+highlight link tsxAttrib Normal
+highlight link typescriptTypeReference Type
+" highlight link typescriptPredefinedType Constant

@@ -419,6 +419,10 @@
     " use `:OR` for organize import of current buffer
     command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
+    vnoremap <leader>p <Plug>(coc-format-selected)
+    nnoremap <leader>p <Plug>(coc-format-selected)
+    command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
     " Using CocList
     " Show all diagnostics
     nnoremap <silent> <space>a :<C-u>CocList diagnostics<cr>
