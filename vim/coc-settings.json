@@ -8,5 +8,8 @@
     "css",
     "markdown"
   ],
-  "coc.preferences.colorSupport": false
+  "coc.preferences.colorSupport": false,
+  "list.insertMappings": {
+    "§": "do:exit"
+  }
 }
