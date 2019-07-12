@@ -8,6 +8,7 @@ highlight link typescriptStringMethod Function
 highlight link typescriptClassName Function
 highlight link typescriptGlobal Identifier
 highlight link typescriptIdentifierName Identifier
+highlight link typescriptFuncType Identifier
 highlight link typescriptTry Keyword
 highlight link typescriptExceptions Keyword
 highlight link typescriptProp Identifier
@@ -27,4 +28,3 @@ highlight link typescriptTypeReference Type
 highlight link typescriptOperator Operator
 highlight link typescriptKeywordOp Keyword
 highlight link typescriptAmbientDeclaration Keyword
-" highlight link typescriptPredefinedType Constant
