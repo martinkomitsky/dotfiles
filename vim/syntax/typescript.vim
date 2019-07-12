@@ -5,8 +5,11 @@ highlight link typescriptVariableDeclaration Identifier
 highlight link typescriptFuncCallArg Identifier
 highlight link typescriptConsoleMethod Function
 highlight link typescriptStringMethod Function
+highlight link typescriptClassName Function
 highlight link typescriptGlobal Identifier
 highlight link typescriptIdentifierName Identifier
+highlight link typescriptTry Keyword
+highlight link typescriptExceptions Keyword
 highlight link typescriptProp Identifier
 highlight link typescriptCall Identifier
 highlight link typescriptArrowFunc Normal
@@ -21,4 +24,7 @@ highlight link tsxAttrib Normal
 highlight link tsxIntrinsicTagName Normal
 highlight link tsxAttrib Normal
 highlight link typescriptTypeReference Type
+highlight link typescriptOperator Operator
+highlight link typescriptKeywordOp Keyword
+highlight link typescriptAmbientDeclaration Keyword
 " highlight link typescriptPredefinedType Constant

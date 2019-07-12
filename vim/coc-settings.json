@@ -7,5 +7,6 @@
     "json",
     "css",
     "markdown"
-  ]
+  ],
+  "coc.preferences.colorSupport": false
 }
