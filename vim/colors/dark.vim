@@ -188,6 +188,14 @@ call s:HL('Ignore', 'grey')
 call s:HL('MatchParen', '', 'grey')
 
 " }}}
+" Directory list {{{
+
+call s:HL('netrwDir', 'green')
+call s:HL('netrwClassify', 'mediumgrey')
+call s:HL('netrwList', 'fg')
+call s:HL('netrwVersion', 'grey')
+
+" }}}
 " Completion Menu {{{
 
 call s:HL('Pmenu',      'fg', 'darkestgrey')

@@ -382,11 +382,11 @@
     endfunction
 
     " Remap for rename current word
-    nnoremap <leader>rn <Plug>(coc-rename)
+    nmap <leader>rn <Plug>(coc-rename)
 
     " Remap for format selected region
-    xnoremap <leader>r <Plug>(coc-format-selected)
-    nnoremap <leader>r <Plug>(coc-format-selected)
+    xmap <leader>r <Plug>(coc-format-selected)
+    nmap <leader>r <Plug>(coc-format-selected)
 
     augroup mygroup
         autocmd!

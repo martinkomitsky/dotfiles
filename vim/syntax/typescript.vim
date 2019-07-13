@@ -28,3 +28,4 @@ highlight link typescriptTypeReference Type
 highlight link typescriptOperator Operator
 highlight link typescriptKeywordOp Keyword
 highlight link typescriptAmbientDeclaration Keyword
+highlight link typescriptObjectLabel Identifier
