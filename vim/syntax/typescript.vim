@@ -29,3 +29,4 @@ highlight link typescriptOperator Operator
 highlight link typescriptKeywordOp Keyword
 highlight link typescriptAmbientDeclaration Keyword
 highlight link typescriptObjectLabel Identifier
+highlight link typescriptModule Identifier
