@@ -115,8 +115,8 @@
 " }}}
 " Color scheme {{{
 
-    " True colors
-    set termguicolors
+    " True colors (works in TMUX)
+    " set termguicolors
 
     try
         colorscheme dark
