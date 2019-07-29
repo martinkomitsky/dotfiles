@@ -95,7 +95,6 @@ endfunction
 " }}}
 " General/UI {{{
 
-call s:HL('Normal', 'whitestgrey', 'blackestgrey')
 call s:HL('Normal', 'lightestgrey', 'blackestgrey')
 
 call s:HL('Folded', 'mediumgrey', 'bg', 'none')
@@ -209,6 +208,9 @@ call s:HL('PmenuThumb', '',   'darkgrey')
 call s:HL('diffRemoved',   'indianred', 'bg')
 call s:HL('diffAdded',     'green',     'bg')
 call s:HL('diffIndexLine', 'fg', 'bg', 'none')
+call s:HL('diffFile', 'whitestgrey')
+call s:HL('diffLine', 'mediumgrey')
+call s:HL('diffSubname', 'mediumgrey', '',  'none')
 
 " }}}
 
