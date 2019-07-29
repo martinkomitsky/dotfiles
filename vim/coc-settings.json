@@ -9,6 +9,7 @@
     "markdown"
   ],
   "coc.preferences.colorSupport": false,
+  "yank.highlight.enable": false,
   "list.insertMappings": {
     "§": "do:exit"
   }

@@ -7,6 +7,7 @@ highlight link typescriptConsoleMethod Function
 highlight link typescriptStringMethod Function
 highlight link typescriptClassName Function
 highlight link typescriptGlobal Identifier
+highlight link typescriptIdentifier Identifier
 highlight link typescriptIdentifierName Identifier
 highlight link typescriptFuncType Identifier
 highlight link typescriptTry Keyword

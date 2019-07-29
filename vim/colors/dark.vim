@@ -23,9 +23,11 @@ let s:colors.white = ['ffffff', 15]
 let s:colors.black = ['000000', 16]
 
 " Identifiers
-let s:colors.whitestgrey = ['ececec', 255]
+let s:colors.whitestgrey  = ['dadada', 253]
 " Normal text
-let s:colors.lightgrey    = ['a8a8a8', 248]
+let s:colors.lightestgrey = ['a8a8a8', 248]
+" Types
+let s:colors.lightgrey    = ['808080', 244]
 " Comments
 let s:colors.mediumgrey   = ['626262', 241]
 " Non text
@@ -43,8 +45,6 @@ let s:colors.gold = ['ffc85d', 221]
 let s:colors.darkgold = ['dabc26', 178]
 " Strings
 let s:colors.green = ['6daf92', 72]
-" Types
-let s:colors.seagreen = ['afd787', 150]
 " Keywords
 let s:colors.blue = ['86a6ef', 111]
 " Booleans
@@ -96,7 +96,7 @@ endfunction
 " General/UI {{{
 
 call s:HL('Normal', 'whitestgrey', 'blackestgrey')
-call s:HL('Normal', 'lightgrey', 'blackestgrey')
+call s:HL('Normal', 'lightestgrey', 'blackestgrey')
 
 call s:HL('Folded', 'mediumgrey', 'bg', 'none')
 
@@ -156,7 +156,7 @@ call s:HL('Exception',   'blue', '', 'none')
 call s:HL('Identifier', 'whitestgrey', '', 'none')
 call s:HL('Function',   'whitestgrey', '', 'none')
 
-call s:HL('Type', 'seagreen')
+call s:HL('Type', 'lightgrey')
 
 " Preprocessor directives are bold
 call s:HL('PreProc',   'fg', '', 'bold')
@@ -218,5 +218,10 @@ call s:HL('SpellCap',   '', '', 'underline')
 call s:HL('SpellBad',   '', '', 'underline')
 call s:HL('SpellLocal', '', '', 'underline')
 call s:HL('SpellRare',  '', '', 'underline')
+
+" }}}
+" CoC {{{
+
+call s:HL('HighlightedyankRegion', '', 'darkgrey')
 
 " }}}
