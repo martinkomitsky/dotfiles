@@ -16,7 +16,7 @@ alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulato
 alias ta="tmux attach"
 
 # Shortcuts
-alias d="cd ~/Dropbox"
+alias db="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Developer"
@@ -31,7 +31,7 @@ alias h="history"
 alias j="jobs"
 alias v="vim"
 alias t="tmux"
-alias s="subl ."
+alias f="fzf"
 alias o="open"
 alias oo="open ."
 alias pb="passbox"
