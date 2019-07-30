@@ -302,11 +302,6 @@
 " Pathogen {{{
 
     let g:pathogen_disabled = []
-    call add(g:pathogen_disabled, 'detectindent')
-    call add(g:pathogen_disabled, 'tlib_vim')
-    call add(g:pathogen_disabled, 'vim-addon-mw-utils')
-    call add(g:pathogen_disabled, 'vim-fugitive')
-    call add(g:pathogen_disabled, 'vim-javascript')
     " call add(g:pathogen_disabled, 'yankring')
     execute pathogen#infect()
 
