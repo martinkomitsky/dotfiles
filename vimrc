@@ -299,13 +299,6 @@
     map <leader>e :edit %%
 
 " }}}
-" Pathogen {{{
-
-    let g:pathogen_disabled = []
-    " call add(g:pathogen_disabled, 'yankring')
-    execute pathogen#infect()
-
-" }}}
 " Yankring {{{
 
     let g:yankring_history_dir = '~/.vim'
