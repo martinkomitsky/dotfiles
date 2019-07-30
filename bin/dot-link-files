@@ -15,6 +15,7 @@ declare -a files=(
     replyrc
     prettier
     gemrc
+    ripgreprc
 )
 
 for i in ${files[@]}; do

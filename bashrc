@@ -62,4 +62,6 @@ if [ -n "$PS1" ]; then
     # Make fzf to use git ls-tree when available
     export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD || find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//) 2> /dev/null'
 
+    export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
 fi
