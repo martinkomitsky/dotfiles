@@ -210,6 +210,7 @@ call s:HL('diffAdded',     'green',     'bg')
 call s:HL('diffIndexLine', 'fg', 'bg', 'none')
 call s:HL('diffFile', 'whitestgrey')
 call s:HL('diffLine', 'mediumgrey')
+call s:HL('diffIndexLine', 'mediumgrey')
 call s:HL('diffSubname', 'mediumgrey', '',  'none')
 
 " }}}

@@ -57,11 +57,10 @@ if [ -n "$PS1" ]; then
     # If possible, add tab completion for many more commands
     # [ -f /etc/bash_completion ] && source /etc/bash_completion
 
+    export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
     # Map alternative Esc for iPad
     export FZF_DEFAULT_OPTS="--bind §:abort"
-    # Make fzf to use git ls-tree when available
-    export FZF_DEFAULT_COMMAND='(git ls-tree -r --name-only HEAD || find . -path "*/\.*" -prune -o -type f -print -o -type l -print | sed s/^..//) 2> /dev/null'
-
-    export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+    export FZF_DEFAULT_COMMAND="rg --files --hidden"
 
 fi
