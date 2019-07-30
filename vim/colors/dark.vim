@@ -195,6 +195,12 @@ call s:HL('netrwList', 'fg')
 call s:HL('netrwVersion', 'grey')
 
 " }}}
+" QuickFix {{{
+
+call s:HL('qfFileName', 'green')
+call s:HL('QuickFixLine', '', 'darkestgrey')
+
+" }}}
 " Completion Menu {{{
 
 call s:HL('Pmenu',      'fg', 'darkestgrey')

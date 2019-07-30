@@ -328,12 +328,31 @@
 " }}}
 " fzf {{{
 
-    set runtimepath+=/usr/local/opt/fzf
-    set rtp+=~/.fzf
+    if isdirectory(expand("~/.fzf"))
+      set runtimepath+=~/.fzf
+    endif
+    if isdirectory("/usr/local/opt/fzf")
+      set runtimepath+=/usr/local/opt/fzf
+    endif
     nnoremap <leader>f :Files<CR>
     nnoremap <leader>b :Buffers<CR>
-    nnoremap <leader>g :GFiles<CR>
+    " nnoremap <leader>g :GFiles<CR>
     nnoremap <leader>t :Tags<CR>
+
+" }}}
+" Ripgrep {{{
+
+" command! -bang -nargs=* Rg
+"   \ call fzf#vim#grep(
+"   \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
+"   \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+"   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+"   \   <bang>0)
+
+    " nnoremap <leader>g :Rg<CR>
+    if executable('rg')
+      set grepprg=rg\ --vimgrep\ --no-column
+    endif
 
 " }}}
 " CoC {{{
@@ -372,7 +391,7 @@
     autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
     " Use K to show documentation in preview window
-    " nnoremap <silent> K :call <SID>show_documentation()<CR>
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
     function! s:show_documentation()
         if (index(['vim','help'], &filetype) >= 0)
             execute 'h '.expand('<cword>')
