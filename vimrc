@@ -345,6 +345,19 @@
 " }}}
 " CoC {{{
 
+    let g:coc_global_extensions = [
+      \ "coc-css",
+      \ "coc-html",
+      \ "coc-json",
+      \ "coc-lists",
+      \ "coc-marketplace",
+      \ "coc-prettier",
+      \ "coc-sh",
+      \ "coc-tsserver",
+      \ "coc-vimlsp",
+      \ "coc-yank"
+      \ ]
+
     " Use tab for trigger completion with characters ahead and navigate.
     " Use command ':verbose inoremap <tab>' to make sure tab is not mapped by other plugin.
     inoremap <silent><expr> <TAB>

@@ -9,7 +9,6 @@ alias ..="cd .."
 alias -- -="cd -"
 
 # Sublime
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 
 # Tmux
@@ -23,13 +22,11 @@ alias p="cd ~/Developer"
 alias v="vim"
 alias y="yarn"
 alias g="git"
-alias xg="xargs git"
 alias gg="git gre"
 alias ga="git gra"
+alias xg="xargs -r git"
+alias xv="xargs -r -o vim -p"
 alias gp="while true; do git pull --rebase || break; git push && break; done"
-alias h="history"
-alias j="jobs"
-alias v="vim"
 alias t="tmux"
 alias f="fzf"
 alias o="open"
@@ -43,10 +40,8 @@ alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
     colorflag="--color"
-    # export LS_COLORS='exfxcxdxbxegedabagacad'
 else # OS X `ls`
     colorflag="-G"
-    # export LSCOLORS='exfxcxdxbxegedabagacad'
 fi
 
 # List all files colorized in long format
