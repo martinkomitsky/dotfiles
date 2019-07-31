@@ -1,3 +1,5 @@
+# vim: ft=dosini
+
 [color]
     ui = auto
 
@@ -16,6 +18,13 @@
     oldMoved=red dim
     newMovedAlternative=green dim
     oldMovedAlternative=red dim
+
+[color "grep"]
+    selected=248
+    filename=72
+    separator=237
+    linenumber=237
+    match=208
 
 [user]
     name = Anton Eprev
@@ -60,10 +69,9 @@
 
     # Search/grep your entire codebase for a string:
     grep = grep -Ii
-    gre = grep -Ii --line-number --heading --break
 
-    # Grep from root folder:
-    gra = "!git grep"
+    gre = grep -Ii --line-number --heading --break
+    gra = "!git gre"
 
     ### Going meta: List all your Aliases (la)
     la = "!git config -l | grep alias | cut -c 7-"
