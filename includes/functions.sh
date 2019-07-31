@@ -1,3 +1,5 @@
+# sh.vim: bash
+
 # Copy password to the system clipboard
 function pc() {
   local password=$(passbox get $1 | grep 'Password')
@@ -14,7 +16,7 @@ function pc() {
   fi
 }
 
-function relpath () {
+function relpath() {
   python -c "import os.path; print os.path.relpath('$1','${2:-$PWD}')"
 }
 
@@ -50,19 +52,24 @@ if [ $? -eq 0 ]; then
     done
   }
 
-  # Find (grep) and replace (sed) text in the repository
-  # Usage: `ggs 'foo\(' 'bar(' -- src`
-  function ggs() {
-    local a="$1"; shift
-    local b="$1"; shift
-    git grep -lzIE "$a" $@ | xargs -0 -I '{}' sed -i -E "s/$a/$b/"g {}
-  }
-
-
   # Use Git’s colored diff when available
   function diff() {
     git diff --no-index --color-words "$@"
   }
+
+fi
+
+hash rg &>/dev/null
+if [ $? -eq 0 ]; then
+
+  # Find (grep) and replace (sed) text in the directory
+  # Usage: `replace 'foo\(' 'bar(' -- src`
+  function replace() {
+    local a="$1"; shift
+    local b="$1"; shift
+    rg -l "$a" $@ | xargs -0 -I '{}' sed -i -E "s/$a/$b/"g {}
+  }
+
 fi
 
 # Create a data URL from a file
@@ -174,4 +181,3 @@ for key, value in map.items():
 SimpleHTTPServer.test();
     ' "$port"
 }
-
