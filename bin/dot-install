@@ -6,6 +6,7 @@ if [ -d $HOME/.dotfiles ]; then
 else
     git clone https://github.com/eprev/dotfiles.git $HOME/.dotfiles
     grep -q "\.dotfiles/bashrc" $HOME/.bashrc || echo "source ~/.dotfiles/bashrc" >> $HOME/.bashrc
+    grep -q "\.dotfiles/bash_profile" $HOME/.bash_profile || echo "source ~/.dotfiles/bash_profile" >> $HOME/.bash_profile
 fi
 
 $HOME/.dotfiles/bin/dot-link-files

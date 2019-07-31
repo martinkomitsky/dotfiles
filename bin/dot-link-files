@@ -2,8 +2,8 @@
 
 dir=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd); dir=$(dirname $dir)
 
+# Hidden files
 declare -a files=(
-    bash_profile
     gitconfig
     gitignore
     eslintrc
@@ -23,6 +23,7 @@ for i in ${files[@]}; do
     [ -L $HOME/.$i ] || ln -sv $dir/$i $HOME/.$i
 done
 
+# Normal files
 declare -a files=(
     tsconfig.json
 )

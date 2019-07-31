@@ -558,6 +558,12 @@ map <leader>mm :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . "> 
 " Typescript {{{
     let g:yats_host_keyword = 0
 " }}}
+" sh.vim {{{
+
+    " Do not mark certain Shell constructions (eg. fi) as errors
+    let g:sh_no_error= 1
+
+" }}}
 " Read local settings {{{
 
     try
