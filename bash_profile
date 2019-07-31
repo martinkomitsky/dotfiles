@@ -1,3 +1,4 @@
+# sh.vim: bash
 # vim: ft=sh
 
 source ~/.dotfiles/bashrc
@@ -7,7 +8,7 @@ export TERM=xterm-256color
 export PASSBOX_LOCATION=$HOME/Dropbox/.passwords.gpg
 
 for file in $HOME/.dotfiles/includes/*.sh; do
-    [ -r "$file" ] && source "$file"
+  [ -r "$file" ] && source "$file"
 done
 unset file
 
@@ -40,3 +41,11 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export FZF_DEFAULT_OPTS="--bind §:abort"
 # Use ripgrep in FZF
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
+
+# FZF
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
