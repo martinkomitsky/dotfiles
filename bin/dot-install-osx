@@ -88,5 +88,7 @@ gem install bundler --user-install
 brew install fzf
 $(brew --prefix)/opt/fzf/install
 
-# ripgrep
+# GNU grep and core utils (eg. ls)
+brew install coreutils grep
+
 brew install ripgrep
