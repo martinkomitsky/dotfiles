@@ -158,10 +158,10 @@ call s:HL('Function',   'whitestgrey', '', 'none')
 call s:HL('Type', 'lightgrey')
 
 " Preprocessor directives are bold
-call s:HL('PreProc',   'fg', '', 'bold')
-call s:HL('Macro',     'fg', '', 'bold')
-call s:HL('Define',    'fg', '', 'bold')
-call s:HL('PreCondit', 'fg', '', 'bold')
+call s:HL('PreProc',   'mediumgrey', '', 'none')
+call s:HL('Macro',     'mediumgrey', '', 'none')
+call s:HL('Define',    'mediumgrey', '', 'none')
+call s:HL('PreCondit', 'mediumgrey', '', 'none')
 
 " Constants are pink
 call s:HL('Constant', 'pink', '', 'none')
