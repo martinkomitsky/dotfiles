@@ -1,0 +1,3 @@
+[submodule "vim/pack/default/start/coc"]
+	path = vim/pack/default/start/coc
+	url = git@github.com:neoclide/coc.nvim.git
