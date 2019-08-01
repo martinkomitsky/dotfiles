@@ -189,7 +189,9 @@ call s:HL('MatchParen', '', 'grey')
 " }}}
 " Directory list {{{
 
-call s:HL('netrwDir', 'green')
+call s:HL('netrwDir', 'blue')
+call s:HL('netrwExe', 'darkgold')
+call s:HL('netrwPlain', 'green')
 call s:HL('netrwClassify', 'mediumgrey')
 call s:HL('netrwList', 'fg')
 call s:HL('netrwVersion', 'grey')
