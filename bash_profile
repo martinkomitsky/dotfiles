@@ -1,7 +1,7 @@
 # sh.vim: bash
 # vim: ft=sh
 
-source ~/.dotfiles/bashrc
+source ~/.bashrc
 
 export TERM=xterm-256color
 
