@@ -42,12 +42,12 @@
     set cursorline
     " Use spaces instead of tabs
     set expandtab
-    " Make tabs as wide as four spaces
-    set tabstop=4
-    " Indenting is 4 spaces
-    set shiftwidth=4
+    " Make tabs as wide as two spaces
+    set tabstop=2
+    " Indenting is 2 spaces
+    set shiftwidth=2
     " Makes the spaces feel like real tabs
-    set softtabstop=4
+    set softtabstop=2
     " Turns it on
     set autoindent
     " Do it smarter!
