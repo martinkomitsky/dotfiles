@@ -3,7 +3,7 @@
 # See http://eprev.org/2015/05/27/converting-png-to-svg/
 
 usage () {
-    cat << EOF
+  cat << EOF
 Usage: $(basename $0) <file> [options]
 
 Run mkbitmap -h for abailable options.
@@ -11,10 +11,10 @@ EOF
 }
 
 if [[ $# == 0 ]] ; then
-    usage
+  usage
 else
-    input=$1
-    output="${input%.*}.svg"
-    shift
-    convert -alpha remove $input pgm: | mkbitmap $@ - -o - | potrace --svg -o $output
+  input=$1
+  output="${input%.*}.svg"
+  shift
+  convert -alpha remove $input pgm: | mkbitmap $@ - -o - | potrace --svg -o $output
 fi
