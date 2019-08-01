@@ -1,7 +1,7 @@
 #!/bin/bash
 
 usage () {
-    cat << EOF
+  cat << EOF
 Usage: $(basename $0) <file>
 
 Example: $(basename $0) ~/.bash_profile
@@ -9,15 +9,14 @@ EOF
 }
 
 if [[ $# == 0 ]] ; then
-    usage
+  usage
 else
-    PS4='+ $(date "+%s.%N")\011 '
-    exec 3>&2 2>/tmp/bash-profiler.log
-    set -x
+  PS4='+ $(date "+%s.%N")\011 '
+  exec 3>&2 2>/tmp/bash-profiler.log
+  set -x
 
-    source "$1"
+  source "$1"
 
-    set +x
-    exec 2>&3 3>&-
-
+  set +x
+  exec 2>&3 3>&-
 fi

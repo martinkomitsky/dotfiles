@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
 if [ -z "$DOTFILES_PATH" ]; then
-    export DOTFILES_PATH=$HOME/.dotfiles
+  export DOTFILES_PATH=$HOME/.dotfiles
 fi
 
 if [ -d "$DOTFILES_PATH" ]; then
-    echo "Updating '$DOTFILES_PATH'..."
-    cd "$DOTFILES_PATH"
-    git pull origin master
+  echo "Updating '$DOTFILES_PATH'..."
+  cd "$DOTFILES_PATH"
+  git pull origin master
 else
-    echo "Installing to '$DOTFILES_PATH'..."
-    git clone https://github.com/eprev/dotfiles.git $DOTFILES_PATH
-    echo "source $DOTFILES_PATH/bashrc" >> $HOME/.bashrc
-    echo "source $DOTFILES_PATH/bash_profile" >> $HOME/.bash_profile
-    cd $DOTFILES_PATH
+  echo "Installing to '$DOTFILES_PATH'..."
+  git clone https://github.com/eprev/dotfiles.git $DOTFILES_PATH
+  echo "source $DOTFILES_PATH/bashrc" >> $HOME/.bashrc
+  echo "source $DOTFILES_PATH/bash_profile" >> $HOME/.bash_profile
+  cd $DOTFILES_PATH
 fi
 
 git submodule init

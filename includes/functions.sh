@@ -1,7 +1,7 @@
 # sh.vim: bash
 
 # Copy password to the system clipboard
-function pc() {
+pc () {
   local password=$(passbox get $1 | grep 'Password')
   if [[ "$password" == "" ]]; then
     echo -e "\nNo entries found!"
@@ -16,17 +16,17 @@ function pc() {
   fi
 }
 
-function relpath() {
+relpath () {
   python -c "import os.path; print os.path.relpath('$1','${2:-$PWD}')"
 }
 
 # Change working directory to the top-most Finder window location
-function cdf() { # short for `cdfinder`
+cdf () {
   cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
 }
 
 # Determine size of a file or total size of a directory
-function fs() {
+fs () {
   if du -b /dev/null > /dev/null 2>&1; then
     local arg=-sbh
   else
@@ -43,7 +43,7 @@ hash git &>/dev/null
 if [ $? -eq 0 ]; then
 
   # Find files in the repository
-  function gf() {
+  gf () {
     local root=$(git rev-parse --show-toplevel)
     local files=$(git -C "$root" ls-files | grep -i "$1")
     local rel="$(relpath "$PWD" "$root")/"
@@ -53,7 +53,7 @@ if [ $? -eq 0 ]; then
   }
 
   # Use Git’s colored diff when available
-  function diff() {
+  diff () {
     git diff --no-index --color-words "$@"
   }
 
@@ -64,7 +64,7 @@ if [ $? -eq 0 ]; then
 
   # Find (grep) and replace (sed) text in the directory
   # Usage: `replace 'foo\(' 'bar(' -- src`
-  function replace() {
+  replace () {
     local a="$1"; shift
     local b="$1"; shift
     rg -l "$a" $@ | xargs -0 -I '{}' sed -i -E "s/$a/$b/"g {}
@@ -73,7 +73,7 @@ if [ $? -eq 0 ]; then
 fi
 
 # Create a data URL from a file
-function dataurl() {
+dataurl () {
   local mimeType=$(file -b --mime-type "$1")
   if [[ $mimeType == text/* ]]; then
     mimeType="${mimeType};charset=utf-8"
@@ -82,7 +82,7 @@ function dataurl() {
 }
 
 # Compare original and gzipped file size
-function gz() {
+gz () {
   local origsize=$(wc -c < "$1")
   local gzipsize=$(gzip -c "$1" | wc -c)
   local ratio=$(echo "$gzipsize * 100/ $origsize" | bc -l)
@@ -91,7 +91,7 @@ function gz() {
 }
 
 # Escape UTF-8 characters into their 3-byte format
-function escape() {
+escape () {
   printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
   # print a newline unless we’re piping the output to another program
   if [ -t 1 ]; then
@@ -100,7 +100,7 @@ function escape() {
 }
 
 # Decode \x{ABCD}-style Unicode escape sequences
-function unidecode() {
+unidecode () {
   perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
   # print a newline unless we’re piping the output to another program
   if [ -t 1 ]; then
@@ -109,7 +109,7 @@ function unidecode() {
 }
 
 # Get a character’s Unicode code point
-function codepoint() {
+codepoint () {
   perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))"
   # print a newline unless we’re piping the output to another program
   if [ -t 1 ]; then
@@ -120,7 +120,7 @@ function codepoint() {
 # Add note to Notes.app (OS X 10.8)
 # Usage: `note 'title' 'body'` or `echo 'body' | note`
 # Title is optional
-function note() {
+note () {
   local title
   local body
   if [ -t 0 ]; then
@@ -142,7 +142,7 @@ EOF
 
 # Add reminder to Reminders.app (OS X 10.8)
 # Usage: `remind 'foo'` or `echo 'foo' | remind`
-function remind() {
+remind () {
   local text
   if [ -t 0 ]; then
     text="$1" # argument
@@ -159,14 +159,14 @@ EOF
 }
 
 # Manually remove a downloaded app or file from the quarantine
-function unquarantine() {
+unquarantine () {
   for attribute in com.apple.metadata:kMDItemDownloadedDate com.apple.metadata:kMDItemWhereFroms com.apple.quarantine; do
     xattr -r -d "$attribute" "$@"
   done
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
-function server() {
+server () {
     local port="${1:-8000}"
     sleep 1 && open "http://localhost:${port}/" &
     # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
