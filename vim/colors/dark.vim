@@ -1,15 +1,15 @@
-" vim: ts=4 et fmr={{{,}}} fdl=2 fdm=marker
+" vim: ts=2 et fmr={{{,}}} fdl=2 fdm=marker
 " Preamble {{{
 
 if !has("gui_running") && &t_Co != 88 && &t_Co != 256
-    finish
+  finish
 endif
 
 set background=dark
 
 " Reset colors to defaults if syntax is on
 if exists("syntax_on")
-    syntax reset
+  syntax reset
 endif
 
 let colors_name = "dark"
@@ -58,38 +58,38 @@ let s:colors.orange = ['ff8700', 208]
 " Highlighting Function {{{
 
 function! s:HL(group, fg, ...)
-    " Arguments: group, guifg, guibg, gui, guisp
+  " Arguments: group, guifg, guibg, gui, guisp
 
-    let histring = 'hi ' . a:group . ' '
+  let histring = 'hi ' . a:group . ' '
 
-    if strlen(a:fg)
-        if a:fg == 'fg'
-            let histring .= 'guifg=fg ctermfg=fg '
-        else
-            let c = get(s:colors, a:fg)
-            let histring .= 'guifg=#' . c[0] . ' ctermfg=' . c[1] . ' '
-        endif
+  if strlen(a:fg)
+    if a:fg == 'fg'
+      let histring .= 'guifg=fg ctermfg=fg '
+    else
+      let c = get(s:colors, a:fg)
+      let histring .= 'guifg=#' . c[0] . ' ctermfg=' . c[1] . ' '
     endif
+  endif
 
-    if a:0 >= 1 && strlen(a:1)
-        if a:1 == 'bg'
-            let histring .= 'guibg=bg ctermbg=bg '
-        else
-            let c = get(s:colors, a:1)
-            let histring .= 'guibg=#' . c[0] . ' ctermbg=' . c[1] . ' '
-        endif
+  if a:0 >= 1 && strlen(a:1)
+    if a:1 == 'bg'
+      let histring .= 'guibg=bg ctermbg=bg '
+    else
+      let c = get(s:colors, a:1)
+      let histring .= 'guibg=#' . c[0] . ' ctermbg=' . c[1] . ' '
     endif
+  endif
 
-    if a:0 >= 2 && strlen(a:2)
-        let histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
-    endif
+  if a:0 >= 2 && strlen(a:2)
+    let histring .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
+  endif
 
-    " if a:0 >= 3 && strlen(a:3)
-    "     let c = get(s:colors, a:3)
-    "     let histring .= 'guisp=#' . c[0] . ' '
-    " endif
+  " if a:0 >= 3 && strlen(a:3)
+  "   let c = get(s:colors, a:3)
+  "   let histring .= 'guisp=#' . c[0] . ' '
+  " endif
 
-    execute histring
+  execute histring
 endfunction
 
 " }}}
