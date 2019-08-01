@@ -220,7 +220,6 @@ call s:HL('diffIndexLine', 'mediumgrey')
 call s:HL('diffSubname', 'mediumgrey', '',  'none')
 
 " }}}
-
 " Spelling {{{
 
 call s:HL('SpellCap',   '', '', 'underline')
@@ -232,5 +231,6 @@ call s:HL('SpellRare',  '', '', 'underline')
 " CoC {{{
 
 call s:HL('HighlightedyankRegion', '', 'darkgrey')
+call s:HL('CocUnderline', 'indianred', '', 'none')
 
 " }}}
