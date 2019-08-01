@@ -3,7 +3,7 @@
 import argparse
 import heapq
 
-parser = argparse.ArgumentParser(description='Analyze bash-profile log for speed.')
+parser = argparse.ArgumentParser(description='Analyze bash-profiler log.')
 parser.add_argument('-f', default='/tmp/bash-profiler.log', help='path to the log file')
 parser.add_argument('-n', default=20, help='number of results to show')
 args = parser.parse_args()

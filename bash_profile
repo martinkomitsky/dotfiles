@@ -1,16 +1,16 @@
 # sh.vim: bash
 # vim: ft=sh
 
-source ~/.bashrc
+source $HOME/.bashrc
 
 export TERM=xterm-256color
 
-export PASSBOX_LOCATION=$HOME/Dropbox/.passwords.gpg
+export PASSBOX_LOCATION="$HOME/Dropbox/.passwords.gpg"
 
-export DOTFILES_PATH=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
+export DOTFILES_PATH="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
 
-for file in $DOTFILES_PATH/includes/*.sh; do
-  [ -r "$file" ] && source "$file"
+for file in "$DOTFILES_PATH"/includes/*.sh; do
+    [ -r "$file" ] && source "$file"
 done
 unset file
 

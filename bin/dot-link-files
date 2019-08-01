@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-dir=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd); dir=$(dirname $dir)
+if [ -z "$DOTFILES_PATH" ]; then
+    echo 'Abort: Expected $DOTFILES_PATH to be set'
+    exit 1
+fi
 
 # Hidden files
 declare -a files=(
@@ -19,7 +22,7 @@ declare -a files=(
 
 for i in ${files[@]}; do
     # create symbolic link if not exists
-    [ -L $HOME/.$i ] || ln -sv $dir/$i $HOME/.$i
+    [ -L $HOME/.$i ] || ln -sv $DOTFILES_PATH/$i $HOME/.$i
 done
 
 # Normal files
@@ -29,5 +32,5 @@ declare -a files=(
 
 for i in ${files[@]}; do
     # create symbolic link if not exists
-    [ -L $HOME/$i ] || ln -sv $dir/$i $HOME/$i
+    [ -L $HOME/$i ] || ln -sv $DOTFILES_PATH/$i $HOME/$i
 done

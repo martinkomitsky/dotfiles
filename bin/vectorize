@@ -3,8 +3,8 @@
 # See http://eprev.org/2015/05/27/converting-png-to-svg/
 
 usage () {
-cat << EOF
-Usage: $0 <file> [options]
+    cat << EOF
+Usage: $(basename $0) <file> [options]
 
 Run mkbitmap -h for abailable options.
 EOF
