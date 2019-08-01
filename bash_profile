@@ -7,10 +7,11 @@ export TERM=xterm-256color
 
 export PASSBOX_LOCATION=$HOME/Dropbox/.passwords.gpg
 
-for file in $HOME/.dotfiles/includes/*.sh; do
+dir=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd);
+for file in $dir/includes/*.sh; do
   [ -r "$file" ] && source "$file"
 done
-unset file
+unset dir file
 
 # Setup git completion for its alias
 __git_complete g __git_main
