@@ -2,17 +2,17 @@
 
 if tput setaf 1 &> /dev/null; then
   tput sgr0
-  COLOR_BRIGHT_GREEN=$(tput setaf 72)
-  COLOR_BRIGHT_YELLOW=$(tput setaf 178)
-  COLOR_BRIGHT_MAGENTA=$(tput setaf 98)
-  COLOR_BRIGHT_CYAN=$(tput setaf 111)
+  COLOR_GREEN=$(tput setaf 72)
+  COLOR_YELLOW=$(tput setaf 178)
+  COLOR_MAGENTA=$(tput setaf 98)
+  COLOR_CYAN=$(tput setaf 111)
   COLOR_RESET=$(tput sgr0)
 else
-  COLOR_RESET=$'\033[m'
   COLOR_GREEN=$'\033[1;32m'
   COLOR_YELLOW=$'\033[1;33m'
   COLOR_MAGENTA=$'\033[1;35m'
   COLOR_CYAN=$'\033[1;36m'
+  COLOR_RESET=$'\033[m'
 fi
 
 function parse_git_dirty() {
