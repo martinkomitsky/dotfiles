@@ -1,5 +1,6 @@
 # ~/.\*
 
+![](screenshot.png)
 ![](screenshot-vim.png)
 
 ## Setup
