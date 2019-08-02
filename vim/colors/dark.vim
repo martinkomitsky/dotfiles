@@ -49,6 +49,8 @@ let s:colors.green = ['6daf92', 72]
 let s:colors.blue = ['86a6ef', 111]
 " Booleans
 let s:colors.pink = ['f18c7a', 174]
+" Types?
+let s:colors.purple = ['875fd7', 98]
 " Errors
 let s:colors.indianred = ['ee3030', 167]
 " Warnings
@@ -217,7 +219,7 @@ call s:HL('diffRemoved',   'indianred', 'bg')
 call s:HL('diffAdded',     'green',     'bg')
 call s:HL('diffIndexLine', 'fg', 'bg', 'none')
 call s:HL('diffFile', 'whitestgrey')
-call s:HL('diffLine', 'mediumgrey')
+call s:HL('diffLine', 'purple')
 call s:HL('diffIndexLine', 'mediumgrey')
 call s:HL('diffSubname', 'mediumgrey', '',  'none')
 
