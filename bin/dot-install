@@ -22,5 +22,11 @@ git submodule update
 # Link ~/. files
 ./bin/dot-link-files
 
+# Install fzf
+hash fzf &>/dev/null
+if [ $? -ne 0 ]; then
+  $DOTFILES_PATH/fzf/install
+fi
+
 # Have fun!
 source $HOME/.bash_profile

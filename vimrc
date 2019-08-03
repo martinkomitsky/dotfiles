@@ -329,13 +329,7 @@
 
 " }}}
 " fzf {{{
-
-  if isdirectory(expand("~/.fzf"))
-    set runtimepath+=~/.fzf
-  endif
-  if isdirectory("/usr/local/opt/fzf")
-    set runtimepath+=/usr/local/opt/fzf
-  endif
+  set runtimepath+=$DOTFILES_PATH/fzf
   nnoremap <leader>f :Files<CR>
   nnoremap <leader>b :Buffers<CR>
   " nnoremap <leader>g :GFiles<CR>

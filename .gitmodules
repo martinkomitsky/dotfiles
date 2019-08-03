@@ -1,3 +1,6 @@
 [submodule "vim/pack/default/start/coc"]
 	path = vim/pack/default/start/coc
 	url = https://github.com/neoclide/coc.nvim.git
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf.git
