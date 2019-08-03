@@ -4,3 +4,6 @@
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "vim/pack/default/start/fzf"]
+	path = vim/pack/default/start/fzf
+	url = https://github.com/junegunn/fzf.vim.git
