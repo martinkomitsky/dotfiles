@@ -416,7 +416,7 @@
   xmap <leader>r <Plug>(coc-format-selected)
   nmap <leader>r <Plug>(coc-format-selected)
 
-  augroup mygroup
+  augroup cocActions
     autocmd!
     " Setup formatexpr specified filetype(s).
     autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
