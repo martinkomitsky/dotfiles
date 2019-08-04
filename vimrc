@@ -567,6 +567,8 @@
   " Auto-detect indent settings
   " autocmd BufReadPost * :DetectIndent
 
+  " Enable file type detection
+  filetype plugin indent on
 
 " }}}
 " Debug {{{
