@@ -16,3 +16,6 @@
 [submodule "vim/pack/default/start/tcomment"]
 	path = vim/pack/default/start/tcomment
 	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "vim/pack/default/start/vim-gitgutter"]
+	path = vim/pack/default/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git

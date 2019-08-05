@@ -223,6 +223,9 @@ call s:HL('diffLine', 'purple')
 call s:HL('diffIndexLine', 'mediumgrey')
 call s:HL('diffSubname', 'mediumgrey', '',  'none')
 
+call s:HL('diffDelete', 'indianred', 'bg')
+call s:HL('diffAdd',    'green',     'bg')
+call s:HL('diffChange', 'gold',      'bg')
 " }}}
 " Spelling {{{
 
