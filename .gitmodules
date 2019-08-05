@@ -19,3 +19,6 @@
 [submodule "vim/pack/default/start/vim-gitgutter"]
 	path = vim/pack/default/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "vim/pack/default/start/editorconfig"]
+	path = vim/pack/default/start/editorconfig
+	url = https://github.com/editorconfig/editorconfig-vim.git
