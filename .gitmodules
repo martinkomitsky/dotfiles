@@ -8,7 +8,7 @@
 	path = vim/pack/default/start/fzf
 	url = https://github.com/junegunn/fzf.vim.git
 [submodule "vim/pack/default/start/tagbar"]
-	path = vim/pack/default/start/tagbar
+	path = vim/pack/default/opt/tagbar
 	url = https://github.com/majutsushi/tagbar.git
 [submodule "vim/pack/default/start/tabular"]
 	path = vim/pack/default/opt/tabular
