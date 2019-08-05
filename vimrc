@@ -37,7 +37,7 @@
   " Enable syntax highlighting
   syntax on
   " Syntax coloring lines that are too long just slows down the world
-  set synmaxcol=100
+  set synmaxcol=120
   " Highlight current line
   set cursorline
   " Use spaces instead of tabs
