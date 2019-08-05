@@ -13,3 +13,6 @@
 [submodule "vim/pack/default/start/tabular"]
 	path = vim/pack/default/opt/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "vim/pack/default/start/tcomment"]
+	path = vim/pack/default/start/tcomment
+	url = https://github.com/tomtom/tcomment_vim.git
