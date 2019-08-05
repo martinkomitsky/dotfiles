@@ -10,3 +10,6 @@
 [submodule "vim/pack/default/start/tagbar"]
 	path = vim/pack/default/start/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/pack/default/start/tabular"]
+	path = vim/pack/default/opt/tabular
+	url = https://github.com/godlygeek/tabular.git
