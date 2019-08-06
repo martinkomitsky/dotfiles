@@ -585,6 +585,13 @@ map <leader>mm :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . "> 
   let g:yats_host_keyword = 0
 
 " }}}
+" Java {{{
+
+let java_highlight_functions = "style"
+let java_highlight_java_lang_ids = 1
+let java_highlight_java_io = 1
+
+" }}}
 " sh.vim {{{
 
   " Do not mark certain Shell constructions (eg. fi) as errors
