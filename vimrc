@@ -362,6 +362,7 @@
     \ "coc-prettier",
     \ "coc-sh",
     \ "coc-tsserver",
+    \ "coc-eslint",
     \ "coc-vimlsp",
     \ "coc-yank"
     \ ]
@@ -450,6 +451,8 @@
   vnoremap <leader>p <Plug>(coc-format-selected)
   nnoremap <leader>p <Plug>(coc-format-selected)
   command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+  command! -nargs=0 Autofix :CocCommand eslint.executeAutofix
 
   " Using CocList
   " Show all diagnostics

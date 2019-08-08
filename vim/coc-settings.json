@@ -8,6 +8,12 @@
     "css",
     "markdown"
   ],
+  "eslint.filetypes": [
+    "typescript",
+    "javascript",
+    "typescriptreact",
+    "javascriptreact",
+  ],
   "coc.preferences.colorSupport": false,
   "yank.highlight.enable": false,
   "list.insertMappings": {
