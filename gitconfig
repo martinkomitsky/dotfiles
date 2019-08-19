@@ -30,6 +30,9 @@
     name = Anton Eprev
     email = a.eprev@gmail.com
 
+[include]
+    path = ~/.gitconfig_local
+
 [core]
     excludesfile = ~/.gitignore
     pager = less -x4 -r
