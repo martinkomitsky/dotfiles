@@ -587,6 +587,13 @@ map <leader>mm :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . "> 
 
   let g:yats_host_keyword = 0
 
+  let g:tcomment#syntax#substitute_by_filetype = {
+              \ '^\(java\|type\)script\.[jt]sx$': {
+              \         '\C^xmlTag': {'sub': 'jsx'},
+              \         '\C^\(javascript\|typescript\|js\)\ze\%(Object\|Braces\|ObjectBraces\)$': {'line_rx': '^\s*{/\*.\{-}\*/}\s*$', 'sub': 'jsx'},
+              \         '\C^xmlAttrib': {'sub': 'javascript'}}
+              \ }
+
 " }}}
 " Java {{{
 
