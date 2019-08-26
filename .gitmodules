@@ -25,3 +25,15 @@
 [submodule "vim/pack/default/start/yats"]
 	path = vim/pack/default/start/yats
 	url = https://github.com/HerringtonDarkholme/yats.vim.git
+[submodule "tmux/plugins/copycat"]
+	path = tmux/plugins/copycat
+	url = https://github.com/tmux-plugins/tmux-copycat.git
+[submodule "tmux/plugins/open"]
+	path = tmux/plugins/open
+	url = https://github.com/tmux-plugins/tmux-open.git
+[submodule "tmux/plugins/ressurect"]
+	path = tmux/plugins/ressurect
+	url = https://github.com/tmux-plugins/tmux-resurrect.git
+[submodule "tmux/plugins/yank"]
+	path = tmux/plugins/yank
+	url = https://github.com/tmux-plugins/tmux-yank.git
