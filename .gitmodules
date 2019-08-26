@@ -32,7 +32,7 @@
 	path = tmux/plugins/open
 	url = https://github.com/tmux-plugins/tmux-open.git
 [submodule "tmux/plugins/ressurect"]
-	path = tmux/plugins/ressurect
+	path = tmux/plugins/resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
 [submodule "tmux/plugins/yank"]
 	path = tmux/plugins/yank
