@@ -122,3 +122,6 @@
 
 [push]
 	default = simple
+
+[url "git@gitlab.booking.com:"]
+	insteadOf = https://gitlab.booking.com/
