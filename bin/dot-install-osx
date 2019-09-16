@@ -71,6 +71,9 @@ brew cask install webpquicklook
 brew install node
 brew install yarn
 
+# Installing N
+npm install -g n
+
 # Installing postcss-sorting (required by vim's css-sorting)
 npm install -g postcss-cli postcss-sorting
 
