@@ -112,6 +112,9 @@
 
   " Stop indenting when pasting
   set pastetoggle=<f2>
+
+  " Hide color column
+  set colorcolumn=
 " }}}
 " Cursor {{{
 
