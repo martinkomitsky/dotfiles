@@ -102,7 +102,7 @@ call s:HL('Normal', 'lightestgrey', 'blackestgrey')
 call s:HL('Folded', 'mediumgrey', 'bg', 'none')
 
 call s:HL('CursorLine',   '', 'darkgrey', 'none')
-call s:HL('CursorLineNr', 'mediumgrey', '')
+call s:HL('CursorLineNr', 'mediumgrey', '', 'none')
 call s:HL('CursorColumn', '', 'darkgrey', 'none')
 
 call s:HL('ColorColumn', '', 'darkestgrey')
