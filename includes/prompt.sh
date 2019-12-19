@@ -147,5 +147,9 @@ function parse_git_branch() {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
+function parse_git_branch_name() {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"
+}
+
 export PS1="\[${COLOR_BRIGHT_CYAN}\]\u\[$COLOR_BRIGHT_MAGENTA\]@\h \[$COLOR_BRIGHT_YELLOW\]\w\[$COLOR_RESET\] \[$COLOR_BRIGHT_GREEN\]\$(parse_git_branch)\[$COLOR_RESET\]\n\$ "
 export PS2="\[$COLOR_RESET\]→ "

@@ -68,6 +68,9 @@ alias gpd='git pull origin devel'
 alias gpm='git pull origin master'
 alias gpr='git pull origin release'
 alias gbn='git branch | grep \* | cut -d " " -f2'
+alias gbn2='git symbolic-ref --short HEAD'
+alias aaa='git commit -am "$(gbn): $@"'
 
 gct (){ local br=$(gbn); git commit -am "$br: $1"; }
 alias gbdo='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias jira='open https://jira.mail.ru/browse/$(parse_git_branch_name)'
