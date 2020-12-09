@@ -74,6 +74,8 @@
     # Grep from root folder:
     gra = "!git grep"
 
+    search = log -S
+
     ### Going meta: List all your Aliases (la)
     la = "!git config -l | grep alias | cut -c 7-"
 
